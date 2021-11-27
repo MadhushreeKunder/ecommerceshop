@@ -1,7 +1,8 @@
 import { products } from "./data";
+import { useCart } from "../contexts";
 
 export function ProductListing(){
-
+    const { setItemsInCart } = useCart();
     return (
       <div className="container">
         <h1>Products</h1>
@@ -14,7 +15,9 @@ export function ProductListing(){
                   <p className="card-title">{item.name}</p>
                   <small className="card-price">Rs.{item.price}</small>
                 </div>
-                <button className="button button-primary card-add-to-cart">Add to Cart</button>
+                <button className="button button-primary card-add-to-cart"
+                onClick={()=> setItemsInCart((items) => [...items, item])}
+                >Add to Cart</button>
               </div>
               
             </div> 

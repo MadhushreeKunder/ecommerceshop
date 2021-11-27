@@ -8,7 +8,7 @@ export function CartProvider({children}) {
         <CartContext.Provider value = {{itemsInCart, setItemsInCart}}>
             {children}
         </CartContext.Provider>
-    )
+    );
 }
 
 export function useCart() {
