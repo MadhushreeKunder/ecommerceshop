@@ -1,2 +1,20 @@
-@import "https://coral-ui.netlify.app/stylish.css";
+@import "https://coral-ui.netlify.app/styles.css";
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.card{
+  height: auto;
+  width: 12rem;
+}
+
+.card-img{
+height: 80%;
+}
+
+.card-info{
+  flex-direction: column;
+}
