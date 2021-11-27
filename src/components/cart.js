@@ -12,6 +12,7 @@ export function Cart() {
             <div className="card-info">
               <p className="card-title">{item.name}</p>
               <small className="card-price">Rs.{item.price}</small>
+              <small>Quantity:{item.quantity}</small>
             </div>
           </div>
         ))}
