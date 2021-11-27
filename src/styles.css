@@ -21,3 +21,8 @@ height: 80%;
 .card-info{
   flex-direction: column;
 }
+
+.button-primary, 
+.button-primary:hover{
+  border: 0px solid transparent;
+}
