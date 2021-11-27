@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./styles.css";
 
 
@@ -85,18 +86,25 @@ export function ProductListing(){
       </div>
     </div>
   )
+}
 
-
+export function Cart(){
+  return <h1>Cart</h1>
 }
 
 export default function App() {
+  const [route, setRoute] = useState("products");
   return (
     <div className="App">
-      <h1 className="app-header"> Ecomm </h1>
+      <h1 className="app-header"> Coral-Shop</h1>
       <div className="app-body">
-        <button>Add</button>
+        <button onClick={()=> setRoute("products")}>Products</button>
+        <button onClick={()=> setRoute("cart")}>Cart</button>
+
+        {route === "products" && <ProductListing/>}
+        {route === "cart" && <Cart/>}
       </div>
-      <ProductListing/>
+      
 
       
     </div>
