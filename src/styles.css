@@ -7,6 +7,15 @@
   color: #282c3f;
 }
 
+.App {
+  font-family: sans-serif;
+  padding: 1rem;
+}
+
+.app-header {
+  text-align: center;
+}
+
 
 
 .card{
@@ -25,4 +34,9 @@ height: 80%;
 .button-primary, 
 .button-primary:hover{
   border: 0px solid transparent;
+}
+
+.card-add-to-cart{
+  box-shadow: none;
+  padding: 0.2rem;
 }
