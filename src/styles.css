@@ -4,12 +4,12 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  color: #282c3f;
 }
 
 .App {
   font-family: sans-serif;
   padding: 1rem;
+  color: #282c3f;
 }
 
 .app-header {
@@ -19,6 +19,11 @@
 .card {
   height: auto;
   width: 12rem;
+  position: relative;
+}
+
+.cards-section {
+  justify-content: space-around;
 }
 
 .card-img {
@@ -39,7 +44,7 @@
   padding: 0.2rem;
 }
 
-.cart-update-quantity{
+.cart-update-quantity {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -50,7 +55,26 @@
   font-size: 1.2rem;
 }
 
-.button-incdec{
+.button-incdec {
   margin: 0;
   padding: 0.2rem 1rem;
+}
+
+.card-badge-small {
+  margin: 0;
+  padding: 1rem;
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  left: auto;
+  color: white;
+
+  clip-path: none;
+  background-color: transparent;
+  border: none;
+}
+
+.flex-start {
+  justify-content: flex-start;
 }
