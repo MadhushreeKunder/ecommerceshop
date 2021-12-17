@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./styles.css";
-import { ProductListing, Cart, CartHeader } from "./components";
+import { ProductListing, Cart, CartHeader, WishList } from "./components";
 
 export default function App() {
   const [route, setRoute] = useState("products");
@@ -22,8 +22,16 @@ export default function App() {
           Cart
         </button>
 
+        <button
+          className={route === "wishlist" ? "button-primary button" : "button"}
+          onClick={() => setRoute("wishlist")}
+        >
+          Wishlist
+        </button>
+
         {route === "products" && <ProductListing />}
         {route === "cart" && <Cart />}
+        {route === "wishlist" && <WishList/>}
       </div>
     </div>
   );
