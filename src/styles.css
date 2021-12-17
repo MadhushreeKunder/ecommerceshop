@@ -75,6 +75,25 @@
   border: none;
 }
 
+.cart-list {
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
 .flex-start {
   justify-content: flex-start;
+}
+
+.cart-page {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.cart-details {
+  border-left: 5px dotted gray;
+  padding: 1rem;
+  margin: 1rem;
 }
