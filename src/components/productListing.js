@@ -1,23 +1,24 @@
 import { products } from "./data";
-import { useCart } from "../contexts";
+import { useCart, useWishList } from "../contexts";
 
 export function ProductListing() {
   const { itemsInCart, setItemsInCart } = useCart();
+  const { itemsInWishList, setItemsInWishList } = useWishList();
 
   const addToCart = (product) => {
-    let newCart = [...itemsInCart];
-    let currentItem = newCart.find((item) => product.name === item.name);
-
-    if (currentItem) {
-      currentItem.quantity++;
-    } else {
-      currentItem = {
-        ...product,
-        quantity: 1,
-      };
-      newCart.push(currentItem);
+    const itemExists = itemsInCart.find((item) => product.name === item.name);
+    if (!itemExists) {
+      setItemsInCart([...itemsInCart, { ...product, quantity: 1 }]);
     }
-    setItemsInCart(newCart);
+  };
+
+  const addToWishList = (product) => {
+    const itemExists = itemsInWishList.find(
+      (item) => product.name === item.name
+    );
+    if (!itemExists) {
+      setItemsInWishList([...itemsInWishList, product]);
+    }
   };
 
   return (
@@ -27,6 +28,12 @@ export function ProductListing() {
         {products.map((item) => (
           <div className="card">
             <img className="card-img" src={item.img} alt="" />
+            <button
+              class="button card-badge-small"
+              onClick={() => addToWishList(item)}
+            >
+              <i class=" far fa-heart"></i>
+            </button>
             <div className="card-info">
               <div>
                 <p className="card-title">{item.name}</p>
