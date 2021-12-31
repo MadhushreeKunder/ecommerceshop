@@ -57,7 +57,7 @@ export default function App() {
 
       <div className="app-body">
         <CartHeader />
-        <button
+        {/* <button
           className={route === "products" ? "button-primary button" : "button"}
           onClick={() => setRoute("products")}
         >
@@ -74,7 +74,7 @@ export default function App() {
           onClick={() => setRoute("wishlist")}
         >
           Wishlist
-        </button>
+        </button> */}
         {route === "products" && <ProductListing />}
         {route === "cart" && <Cart />}
         {route === "wishlist" && <WishList />}
