@@ -8,13 +8,22 @@
 
 .App {
   font-family: sans-serif;
-  padding: 1rem;
+  /* padding: 1rem; */
   color: #282c3f;
 }
 
 .app-header {
   text-align: center;
 }
+
+/* ----------------------------------------------------------- */
+
+.button{
+  margin: 0;
+}
+
+
+/* ---------------------------------------------------------- */
 
 .card {
   height: auto;
@@ -39,7 +48,7 @@
   border: 0px solid transparent;
 }
 
-.card-add-to-cart {
+.card-button {
   box-shadow: none;
   padding: 0.2rem;
 }
@@ -97,3 +106,7 @@
   padding: 1rem;
   margin: 1rem;
 }
+
+/* ------------------header------------------ */
+
+

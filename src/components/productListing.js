@@ -40,7 +40,7 @@ export function ProductListing() {
                 <small className="card-price">Rs.{item.price}</small>
               </div>
               <button
-                className="button button-primary card-add-to-cart"
+                className="button button-primary card-button"
                 onClick={() => addToCart(item)}
               >
                 Add to Cart
