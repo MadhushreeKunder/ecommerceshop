@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./styles.css";
 import { ProductListing, Cart, CartHeader, WishList } from "./components";
 import { Home } from "./components/home";
+import { Link } from "react-router-dom";
 
 export default function App() {
   const [route, setRoute] = useState("products");
@@ -16,49 +17,25 @@ export default function App() {
           <nav className="nav">
             <ul className="nav-list nav-list--primary">
               <li className="nav-item">
-                <button
-                  className="nav-link button button-primary"
-                  onClick={() => setRoute("home")}
-                >
-                  Home
-                </button>
+                <Link className="nav-link button button-primary" to="/">
+                  Home{" "}
+                </Link>
               </li>
               <li className="nav-item">
-                <button
-                  className="nav-link button button-primary"
-                  onClick={() => setRoute("products")}
-                >
+                <Link className="nav-link button button-primary" to="/products">
                   Products
-                </button>
+                </Link>
               </li>
               <li className="nav-item">
-                <button
-                  className="nav-link button button-primary"
-                  onClick={() => setRoute("cart")}
-                >
+                <Link className="nav-link button button-primary" to="/cart">
                   Cart
-                </button>
+                </Link>
               </li>
               <li className="nav-item">
-                <button
-                  className="nav-link button button-primary"
-                  onClick={() => setRoute("wishlist")}
-                >
-                  Wishlist
-                </button>
+                <Link className="nav-link button button-primary" to="/wishlist">
+                  WishList
+                </Link>
               </li>
-            </ul>
-            <ul className="nav-list">
-              <li className="nav-item">
-                <button className="nav-link button button-primary">
-                  Sign In
-                </button>
-              </li>
-              {/* <li className="nav-item">
-                <button className="nav-link button button-primary">
-                  Sign up
-                </button>
-              </li> */}
             </ul>
           </nav>
         </div>
@@ -66,10 +43,6 @@ export default function App() {
 
       <div className="app-body">
         <CartHeader />
-        {route === "home" && <Home />}
-        {route === "products" && <ProductListing />}
-        {route === "cart" && <Cart />}
-        {route === "wishlist" && <WishList />}
       </div>
     </div>
   );
