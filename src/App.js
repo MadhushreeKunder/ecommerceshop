@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./styles.css";
 import { ProductListing, Cart, CartHeader, WishList } from "./components";
+import { Home } from "./components/home";
 
 export default function App() {
   const [route, setRoute] = useState("products");
@@ -17,9 +18,17 @@ export default function App() {
               <li className="nav-item">
                 <button
                   className="nav-link button button-primary"
-                  onClick={() => setRoute("products")}
+                  onClick={() => setRoute("home")}
                 >
                   Home
+                </button>
+              </li>
+              <li className="nav-item">
+                <button
+                  className="nav-link button button-primary"
+                  onClick={() => setRoute("products")}
+                >
+                  Products
                 </button>
               </li>
               <li className="nav-item">
@@ -39,17 +48,17 @@ export default function App() {
                 </button>
               </li>
             </ul>
-            <ul className="nav-list nav-list--secondary">
+            <ul className="nav-list">
               <li className="nav-item">
                 <button className="nav-link button button-primary">
                   Sign In
                 </button>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <button className="nav-link button button-primary">
                   Sign up
                 </button>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </div>
@@ -57,7 +66,7 @@ export default function App() {
 
       <div className="app-body">
         <CartHeader />
-
+        {route === "home" && <Home />}
         {route === "products" && <ProductListing />}
         {route === "cart" && <Cart />}
         {route === "wishlist" && <WishList />}
