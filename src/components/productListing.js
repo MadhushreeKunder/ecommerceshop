@@ -1,5 +1,6 @@
-import { products } from "./data";
 import { useCart, useWishList } from "../contexts";
+import { Link } from "react-router-dom";
+import { products } from "../data";
 
 export function ProductListing() {
   const { itemsInCart, setItemsInCart } = useCart();
@@ -29,13 +30,15 @@ export function ProductListing() {
       <div className="cards-section">
         {products.map((item) => (
           <div className="card">
+            <Link to={`/products/${item.id}`}>view details</Link>
             <img className="card-img" src={item.img} alt="" />
             <button
               class="button card-badge-small"
               onClick={() => addToWishList(item)}
             >
-              <i class=" fa fa-heart" 
-              // style={{color: toggleHeart}}
+              <i
+                class=" fa fa-heart"
+                // style={{color: toggleHeart}}
               ></i>
             </button>
             <div className="card-info">
