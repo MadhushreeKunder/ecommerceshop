@@ -16,17 +16,16 @@
   text-align: center;
 }
 
-.app-body{
+.app-body {
   margin-top: 5rem;
   margin-bottom: 3rem;
 }
 
 /* ----------------------------------------------------------- */
 
-.button{
+.button {
   margin: 0;
 }
-
 
 /* ---------------------------------------------------------- */
 
@@ -41,7 +40,34 @@
 }
 
 .card-img {
-  height: 80%;
+  height: 100%;
+}
+
+.card-brand {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card-name {
+  font-size: 0.9rem;
+  font-weight: lighter;
+  color: #5f5f5f;
+}
+
+.card-price {
+  font-weight: 600;
+}
+
+.card-old-price {
+  text-Decoration: line-through;
+  color: gray;
+  font-Size: 0.75rem;
+  font-Weight: 100;
+}
+
+.card-discount{
+  color: #398E3D ;
+  font-Size: 0.75rem ;
 }
 
 .card-info {
@@ -114,9 +140,9 @@
 
 /* ------------------header------------------ */
 
-.nav-header{
+.nav-header {
   position: fixed;
-  top:0;
+  top: 0;
   width: 100%;
   margin-bottom: 5rem;
   z-index: 10;

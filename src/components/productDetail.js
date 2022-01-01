@@ -6,14 +6,14 @@ export function ProductDetail() {
   const { productId } = useParams();
 
   console.log({ productId });
-  const {name, description} = products.find((product) => product.id === Number(productId));
-
-//   console.log(vistaar)
+  const {name, description, img, price} = products.find((product) => product.id === Number(productId));
 
   return (
     <div>
+        <img src={img}/>
       <h1> {name} </h1>
-      <h2>{description}</h2>
+      <h2>Price: Rs. {price}</h2>
+      <p>{description}</p>
       I am a product
     </div>
   );
