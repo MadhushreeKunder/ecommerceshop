@@ -31,7 +31,10 @@ export function ProductListing() {
         {products.map((item) => (
           <div className="card">
             <Link to={`/products/${item.id}`}>
-              <img className="card-img" src={item.img} alt="" />{" "}
+              <div className="card-img-rating">
+                <img className="card-img" src={item.img} alt="" />{" "}
+                <div className="bottom-left">{item.star} <span class="fa fa-star checked"> </span> | {item.rating}k</div>
+              </div>
             </Link>
             <button
               class="button card-badge-small"
@@ -47,17 +50,10 @@ export function ProductListing() {
                 <div>
                   <p className="card-brand">{item.brand}</p>
                   <p className="card-name">{item.name}</p>
-                  <p className="card-price">Rs.{item.price}</p>
-                  <span
-                   className="card-old-price"
-                  >
-                    {" "}
-                    Rs. {item.oldprice}
-                  </span>
-                  <span className="card-discount">
-                    {" "}
-                    ({item.discount}% OFF)
-                  </span>
+                  {/* <p>{item.star} <span class="fa fa-star checked"> </span> | {item.rating}k Ratings</p> */}
+                  <p className="card-price">Rs.{item.price} </p>
+                  <span className="card-old-price"> Rs. {item.oldprice}</span>
+                  <span className="card-discount"> ({item.discount}% OFF)</span>
                 </div>
               </Link>
 

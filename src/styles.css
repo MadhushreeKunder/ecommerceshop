@@ -39,6 +39,18 @@
   justify-content: space-around;
 }
 
+.card-img-rating{
+  position: relative;
+}
+
+.bottom-left{
+  position: absolute;
+  bottom: 14px;
+  left: 10px;
+  font-size: 0.75rem;
+  background-color: rgba(238, 238, 238, 0.705);
+}
+
 .card-img {
   height: 100%;
 }
@@ -136,6 +148,10 @@
   border-left: 5px dotted gray;
   padding: 1rem;
   margin: 1rem;
+}
+
+.checked{
+  color: #219B95;
 }
 
 /* ------------------header------------------ */
