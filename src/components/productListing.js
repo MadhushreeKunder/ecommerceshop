@@ -4,6 +4,7 @@ import { useCart, useWishList } from "../contexts";
 export function ProductListing() {
   const { itemsInCart, setItemsInCart } = useCart();
   const { itemsInWishList, setItemsInWishList } = useWishList();
+  // const {toggleHeart, setToggleHeart} = useWishList();
 
   const addToCart = (product) => {
     const itemExists = itemsInCart.find((item) => product.name === item.name);
@@ -18,8 +19,7 @@ export function ProductListing() {
     );
     if (!itemExists) {
       setItemsInWishList([...itemsInWishList, product]);
-      
-      
+      // setToggleHeart("red");
     }
   };
 
@@ -34,7 +34,9 @@ export function ProductListing() {
               class="button card-badge-small"
               onClick={() => addToWishList(item)}
             >
-              <i class=" fa fa-heart"></i>
+              <i class=" fa fa-heart" 
+              // style={{color: toggleHeart}}
+              ></i>
             </button>
             <div className="card-info">
               <div>

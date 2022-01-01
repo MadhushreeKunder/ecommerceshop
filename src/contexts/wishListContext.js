@@ -4,8 +4,9 @@ export const WishListContext = createContext();
 
 export function WishListProvider({ children }) {
   const [itemsInWishList, setItemsInWishList] = useState([]);
+  const [toggleHeart, setToggleHeart] = useState("white");
   return (
-    <WishListContext.Provider value={{ itemsInWishList, setItemsInWishList }}>
+    <WishListContext.Provider value={{ itemsInWishList, setItemsInWishList, toggleHeart, setToggleHeart }}>
       {children}
     </WishListContext.Provider>
   );
