@@ -18,6 +18,8 @@ export function ProductListing() {
     );
     if (!itemExists) {
       setItemsInWishList([...itemsInWishList, product]);
+      
+      
     }
   };
 
@@ -32,7 +34,7 @@ export function ProductListing() {
               class="button card-badge-small"
               onClick={() => addToWishList(item)}
             >
-              <i class=" far fa-heart"></i>
+              <i class=" fa fa-heart"></i>
             </button>
             <div className="card-info">
               <div>
