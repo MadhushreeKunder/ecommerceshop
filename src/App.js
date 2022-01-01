@@ -1,11 +1,8 @@
-import { useState } from "react";
 import "./styles.css";
-import { ProductListing, Cart, CartHeader, WishList } from "./components";
-import { Home } from "./components/home";
-import { Link } from "react-router-dom";
+import { ProductListing, Cart, CartHeader, WishList, Home, ProductDetail } from "./components";
+import { Link, Routes, Route } from "react-router-dom";
 
 export default function App() {
-  const [route, setRoute] = useState("products");
   return (
     <div className="App">
       <header className="nav-header">
@@ -44,6 +41,13 @@ export default function App() {
       <div className="app-body">
         <CartHeader />
       </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<ProductListing />} />
+        <Route path="/products/:productId" element={<ProductDetail />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<WishList />} />
+      </Routes>
     </div>
   );
 }

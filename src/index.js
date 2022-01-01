@@ -2,8 +2,7 @@ import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import { CartProvider } from "./contexts";
 import { WishListProvider } from "./contexts";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Cart, CartHeader, ProductListing, Home, WishList } from "./components";
+import { BrowserRouter} from "react-router-dom";
 
 import App from "./App";
 
@@ -13,13 +12,7 @@ ReactDOM.render(
     <BrowserRouter>
       <CartProvider>
         <WishListProvider>
-          <App />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<ProductListing />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/wishlist" element={<WishList />} />
-          </Routes>
+          <App />  
         </WishListProvider>
       </CartProvider>
     </BrowserRouter>
