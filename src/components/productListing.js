@@ -2,6 +2,7 @@ import { useCart, useWishList } from "../contexts";
 import { Link } from "react-router-dom";
 import { products } from "../data";
 
+
 export function ProductListing() {
   const { itemsInCart, setItemsInCart } = useCart();
   const { itemsInWishList, setItemsInWishList } = useWishList();
@@ -26,6 +27,7 @@ export function ProductListing() {
 
   return (
     <div className="container">
+      <div></div>
       <h1>Products</h1>
       <div className="cards-section">
         {products.map((item) => (
