@@ -2,11 +2,10 @@ import { useCart, useWishList } from "../contexts";
 import { Link } from "react-router-dom";
 import { products } from "../data";
 
-
 export function ProductListing() {
   const { itemsInCart, setItemsInCart } = useCart();
   const { itemsInWishList, setItemsInWishList } = useWishList();
-  // const {toggleHeart, setToggleHeart} = useWishList();
+  // const { toggleHeartRed, setToggleHeartRed } = useWishList();
 
   const addToCart = (product) => {
     const itemExists = itemsInCart.find((item) => product.name === item.name);
@@ -21,7 +20,10 @@ export function ProductListing() {
     );
     if (!itemExists) {
       setItemsInWishList([...itemsInWishList, product]);
-      // setToggleHeart("red");
+      // setToggleHeartRed([!toggleHeartRed]);
+    } else {
+      setItemsInWishList(itemsInWishList.filter((item) => item !== itemExists));
+      // setToggleHeartRed(toggleHeartRed);
     }
   };
 
@@ -35,7 +37,10 @@ export function ProductListing() {
             <Link to={`/products/${item.id}`}>
               <div className="card-img-rating">
                 <img className="card-img" src={item.img} alt="" />{" "}
-                <div className="bottom-left">{item.star} <span class="fa fa-star checked"> </span> | {item.rating}k</div>
+                <div className="bottom-left">
+                  {item.star} <span class="fa fa-star checked"> </span> |{" "}
+                  {item.rating}k
+                </div>
               </div>
             </Link>
             <button
@@ -44,7 +49,7 @@ export function ProductListing() {
             >
               <i
                 class=" fa fa-heart"
-                // style={{color: toggleHeart}}
+                // style={{ color: toggleHeartRed ? "red" : "white" }}
               ></i>
             </button>
             <div className="card-info">
