@@ -180,11 +180,12 @@
   background-color: white;
 }
 
-.nav-link{
+.nav-link {
   color: var(--primary-coral);
 }
 
-.nav-link:hover{
+.nav-link:hover,
+.nav-link:active {
   background-color: var(--primary-coral);
   color: white;
   opacity: 1;
