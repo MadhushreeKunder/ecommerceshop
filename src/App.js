@@ -8,36 +8,46 @@ import {
   ProductDetail,
 } from "./components";
 import { Link, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 export default function App() {
+  const [isNavVisible, setNavVisible] = useState("false");
+
+  const toggleNav = () => {
+    setNavVisible(!isNavVisible);
+  };
+
   return (
     <div className="App">
       <header className="nav-header">
-        <div class="nav-top nav-top-flex">
-          <button class="nav-toggle" aria-label="open navigation">
-            <span class="hamburger"></span>
+        <div className="nav-top nav-top-flex">
+          <button
+            className="nav-toggle"
+            aria-label="open navigation"
+            onClick={toggleNav}
+          >
+            <span className="hamburger"></span>
           </button>
-          <a className="nav-logo flex" href="#">
+          <a href="#">
             <img
               src="images/logo1.png"
               className="logo-img"
               alt="CORAL-UI"
             ></img>
-            <h1>CORAL</h1>
           </a>
-          <nav class="nav">
-            <ul class="nav-list nav-list--primary">
-              <li class="nav-item">
+          <nav className={isNavVisible ? "nav" : "nav nav--visible"}>
+            <ul className="nav-list nav-list--primary">
+              <li className="nav-item">
                 <Link className="nav-link button button-primary" to="/">
                   Home{" "}
                 </Link>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <Link className="nav-link button button-primary" to="/products">
                   Products
                 </Link>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <Link className="nav-link button button-primary" to="/cart">
                   Cart
                 </Link>
@@ -48,14 +58,14 @@ export default function App() {
                 </Link>
               </li>
             </ul>
-            <ul class="nav-list nav-list--secondary">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
+            <ul className="nav-list nav-list--secondary">
+              <li className="nav-item">
+                <a href="#" className="nav-link">
                   Log In
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link nav-link--button">
+              <li className="nav-item">
+                <a href="#" className="nav-link nav-link--button">
                   Sign up
                 </a>
               </li>
