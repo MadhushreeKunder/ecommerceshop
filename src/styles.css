@@ -166,15 +166,29 @@
 
 .nav-header {
   position: fixed;
-  background: var(--primary-coral);
+  background: rgba(255, 255, 255, 1);
   text-align: center;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 10;
   align-items: center;
+  box-shadow: 0 4px 12px 5px rgb(0 0 0 / 5%);
 }
 
+.nav-top {
+  background-color: white;
+}
+
+.nav-link{
+  color: var(--primary-coral);
+}
+
+.nav-link:hover{
+  background-color: var(--primary-coral);
+  color: white;
+  opacity: 1;
+}
 
 img {
   width: 100%;
@@ -227,5 +241,6 @@ img {
 @media only screen and (max-width: 900px) {
   .nav-top {
     margin: 0;
+    width: 100%;
   }
 }

@@ -38,36 +38,39 @@ export default function App() {
           <nav className={isNavVisible ? "nav" : "nav nav--visible"}>
             <ul className="nav-list nav-list--primary">
               <li className="nav-item">
-                <Link className="nav-link button button-primary" to="/">
+                <Link className="nav-link button " to="/">
                   Home{" "}
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link button button-primary" to="/products">
+                <Link className="nav-link button" to="/products">
                   Products
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link button button-primary" to="/cart">
+                <Link className="nav-link button " to="/cart">
                   Cart
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link button button-primary" to="/wishlist">
+                <Link className="nav-link button" to="/wishlist">
                   WishList
                 </Link>
               </li>
             </ul>
             <ul className="nav-list nav-list--secondary">
               <li className="nav-item">
-                <a href="#" className="nav-link">
-                  Log In
-                </a>
+                <Link className="nav-link button " to="/">
+                  Log In{" "}
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="#" className="nav-link nav-link--button">
-                  Sign up
-                </a>
+                <Link
+                  className="nav-link button button-secondary nav-link--button"
+                  to="/"
+                >
+                  Sign In{" "}
+                </Link>
               </li>
             </ul>
           </nav>
