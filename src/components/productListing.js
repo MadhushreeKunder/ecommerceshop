@@ -1,11 +1,16 @@
-import { useCart, useWishList } from "../contexts";
+import { useCart, useWishList, useProduct } from "../contexts";
 import { Link } from "react-router-dom";
-import { products } from "../data";
+// import { products } from "../data";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export function ProductListing() {
   const { itemsInCart, setItemsInCart } = useCart();
   const { itemsInWishList, setItemsInWishList } = useWishList();
   // const { toggleHeartRed, setToggleHeartRed } = useWishList();
+  const [loader, setLoader] = useState(false);
+
+  const { productsData, setProductsData } = useProduct();
 
   const addToCart = (product) => {
     const itemExists = itemsInCart.find((item) => product.name === item.name);
@@ -27,12 +32,28 @@ export function ProductListing() {
     }
   };
 
+  useEffect(() => {
+    (async function () {
+      setLoader(true);
+      try {
+        const response = await axios.get("https://product-id-handler-middleware-timestamps-1.madhushreekunde.repl.co/products")
+        .then((response) => setProductsData(response.data.products));
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoader( false);
+      }
+    })();
+  }, [])
+
   return (
     <div className="container">
       <div></div>
       <h1>Products</h1>
+      {loader && <span> Loading... </span>}
+
       <div className="cards-section">
-        {products.map((item) => (
+        {productsData.map((item) => (
           <div className="card">
             <Link to={`/products/${item.id}`}>
               <div className="card-img-rating">

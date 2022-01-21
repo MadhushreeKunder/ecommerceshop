@@ -1,8 +1,8 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
-import { CartProvider } from "./contexts";
+import { CartProvider, ProductProvider } from "./contexts";
 import { WishListProvider } from "./contexts";
-import { BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
 
@@ -12,7 +12,9 @@ ReactDOM.render(
     <BrowserRouter>
       <CartProvider>
         <WishListProvider>
-          <App />  
+          <ProductProvider>
+            <App />
+          </ProductProvider>
         </WishListProvider>
       </CartProvider>
     </BrowserRouter>
