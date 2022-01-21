@@ -55,7 +55,7 @@ export function ProductListing() {
       <div className="cards-section">
         {productsData.map((item) => (
           <div className="card">
-            <Link to={`/products/${item.id}`}>
+            {/* <Link to={`/products/${item.id}`}> */}
               <div className="card-img-rating">
                 <img className="card-img" src={item.img} alt="" />{" "}
                 <div className="bottom-left">
@@ -63,7 +63,7 @@ export function ProductListing() {
                   {item.rating}k
                 </div>
               </div>
-            </Link>
+            {/* </Link> */}
             <button
               class="button card-badge-small"
               onClick={() => addToWishList(item)}
@@ -74,7 +74,7 @@ export function ProductListing() {
               ></i>
             </button>
             <div className="card-info">
-              <Link to={`/products/${item.id}`}>
+              {/* <Link to={`/products/${item.id}`}> */}
                 <div>
                   <p className="card-brand">{item.brand}</p>
                   <p className="card-name">{item.name}</p>
@@ -83,7 +83,7 @@ export function ProductListing() {
                   <span className="card-old-price"> Rs. {item.oldprice}</span>
                   <span className="card-discount"> ({item.discount}% OFF)</span>
                 </div>
-              </Link>
+              {/* </Link> */}
 
               <button
                 className="button button-primary card-button"
