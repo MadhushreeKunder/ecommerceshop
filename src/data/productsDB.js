@@ -139,4 +139,191 @@ export const products = [
     "description":
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis cumque cum iure aut placeat. Rerum itaque tempore expedita reprehenderit aliquam."
   },
+  {
+    "id": 10,
+    "brand": "MANGO",
+    "name": "Flared Mini SKirt",
+    "quantity": 0,
+    "oldprice": 2000,
+   "price": 791,
+    "discount": 40,
+    "rating": 2,
+    "star": 5,
+    "img": "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2019/12/3/fe361135-8cb8-4e6c-a788-ee089b4a0b031575313536330-1.jpg",
+    "description":
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis cumque cum iure aut placeat. Rerum itaque tempore expedita reprehenderit aliquam."
+  },
+  {
+    "modelNo": 11,
+    "brand": "HRX",
+    "name": "Printed Cotton T-shirt",
+    "quantity": 0,
+    "oldprice": 699,
+   "price": 314,
+    "discount": 55,
+    "rating": 3.6,
+    "star": 4,
+    "img": "https://res.cloudinary.com/madhushreekunder/image/upload/v1642770738/e-comm%20images/man1.webp",
+    "description":
+      "This season set a sporty fashion trend with the HRX Men's Athleisure T-shirt. This striped casual T-shirt can be worn on its own or layered under a jacket or a hoodie.",
+    "inStock": true,
+    "gender": "male",
+    "fastDelivery": true
+  },
+
+  {
+    "modelNo": 12,
+    "brand": "H&M",
+    "name": "Maroon Printed T-shirt",
+    "quantity": 0,
+    "oldprice": 899,
+   "price": 314,
+    "discount": 65,
+    "rating": 1.8,
+    "star": 4,
+    "img": "https://res.cloudinary.com/madhushreekunder/image/upload/v1642770774/e-comm%20images/man2.webp",
+    "description":
+      "Maroon and black printed T-shirt, has a round neck, long sleeves",
+    "inStock": true,
+    "gender": "male",
+    "fastDelivery": true
+  },
+  {
+    "modelNo": 13,
+    "brand": "Levis",
+    "name": "Logo Printed T-shirt",
+    "quantity": 0,
+    "oldprice": 1799,
+   "price": 1079,
+    "discount": 40,
+    "rating": 3.4,
+    "star": 5,
+    "img": "https://res.cloudinary.com/madhushreekunder/image/upload/v1642770975/e-comm%20images/man3.webp",
+    "description": "Black Tshirt for men Brand logo printed Regular length Round neck Short, regular sleeves",
+    "inStock": true,
+    "gender": "male",
+    "fastDelivery": true
+  },
+  {
+    "modelNo": 14,
+    "brand": "HRX",
+    "name": "Yellow Cotton T-shirt",
+    "quantity": 0,
+    "oldprice": 699,
+   "price": 314,
+    "discount": 55,
+    "rating": 3.9,
+    "star": 4,
+    "img": "https://res.cloudinary.com/madhushreekunder/image/upload/v1642770996/e-comm%20images/man4.webp",
+    "description":
+      "Keep this hip this season with the HRX Men's Athleisure T-shirt. This versatile T-shirt can be styled any way you like for the ultimate gym-to-street look.",
+    "inStock": true,
+    "gender": "male",
+    "fastDelivery": false
+  },
+  {
+    "modelNo": 15,
+    "brand": "Roadster",
+    "name": "Charcoal Graphic T-shirt",
+    "quantity": 0,
+    "oldprice": 499,
+   "price": 274,
+    "discount": 45,
+    "rating": 5.2,
+    "star": 2,
+    "img": "https://res.cloudinary.com/madhushreekunder/image/upload/v1642770996/e-comm%20images/man4.webp",
+    "description":
+      "Keep this hip this season with the HRX Men's Athleisure T-shirt. This versatile T-shirt can be styled any way you like for the ultimate gym-to-street look.",
+    "inStock": false,
+    "gender": "male",
+    "fastDelivery": true
+  },
+  {
+    "modelNo": 16,
+    "brand": "HERE&NOW",
+    "name": "Teal Tropical T-shirt",
+    "quantity": 0,
+    "oldprice": 1099,
+   "price": 494,
+    "discount": 55,
+    "rating": 1.6,
+    "star": 1,
+    "img": "https://res.cloudinary.com/madhushreekunder/image/upload/v1642858873/e-comm%20images/man7.webp",
+    "description":
+      "Teal green Tropical printed T-shirt, has a round neck, and long sleeves",
+    "inStock": true,
+    "gender": "male",
+    "fastDelivery": true
+  },
+  {
+    "modelNo": 17,
+    "brand": "HERE&NOW",
+    "name": "Off-White Polo Collar",
+    "quantity": 0,
+    "oldprice": 1299,
+   "price": 584,
+    "discount": 55,
+    "rating": 1.6,
+    "star": 3,
+    "img": "https://res.cloudinary.com/madhushreekunder/image/upload/v1642858845/e-comm%20images/man6.webp",
+    "description":
+      "Off-White and navy blue striped T-shirt, has a polo collar, short sleeves      ",
+    "inStock": true,
+    "gender": "male",
+    "fastDelivery": false
+  },
+  {
+    "modelNo": 18,
+    "brand": "WRONG",
+    "name": "Teal Green Polo",
+    "quantity": 0,
+    "oldprice": 1399,
+   "price": 839,
+    "discount": 40,
+    "rating": 2,
+    "star": 3,
+    "img": "https://res.cloudinary.com/madhushreekunder/image/upload/v1642858898/e-comm%20images/man8.webp",
+    "description":
+      "Teal green solid T-shirt, has a polo collar, and short sleeves      ",
+    "inStock": true,
+    "gender": "male",
+    "fastDelivery": true
+  },
+  {
+    "modelNo": 19,
+    "brand": "HRX",
+    "name": "White & Navy Striped",
+    "quantity": 0,
+    "oldprice": 899,
+   "price": 449,
+    "discount": 50,
+    "rating": 1.9,
+    "star": 4,
+    "img": "https://res.cloudinary.com/madhushreekunder/image/upload/v1642860255/e-comm%20images/man9.webp",
+    "description":
+      "White and navy blue striped T-shirt, has a round neck, short sleeves",
+    "inStock": true,
+    "gender": "male",
+    "fastDelivery": true
+  },
+  {
+    "modelNo": 20,
+    "brand": "Levis",
+    "name": "Olve Green Casual",
+    "quantity": 0,
+    "oldprice": 1399,
+   "price": 839,
+    "discount": 40,
+    "rating": 4,
+    "star": 4,
+    "img": "https://res.cloudinary.com/madhushreekunder/image/upload/v1642860298/e-comm%20images/man10.webp",
+    "description":
+      "Olive green T-shirt for men Typography printed Regular length round neck",
+    "inStock": true,
+    "gender": "male",
+    "fastDelivery": true
+  },
+
+
+  
 ];
