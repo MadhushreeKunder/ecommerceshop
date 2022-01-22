@@ -182,7 +182,25 @@
 
 .nav-link {
   color: var(--primary-coral);
+  position: relative;
 }
+
+
+.nav-link[data-badge]:after {
+  content:attr(data-badge);
+  position:absolute;
+  top:-5px;
+  right:-10px;
+  font-size:.7em;
+  color: white;
+  background-color: var(--primary-coral);
+  width:25px;
+  height:25px;
+  text-align:center;
+  line-height:25px;
+  border-radius:50%;
+}
+
 
 .nav-link:hover,
 .nav-link:active {

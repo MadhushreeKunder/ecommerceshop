@@ -7,10 +7,14 @@ import {
   Home,
   ProductDetail,
 } from "./components";
+import { useCart, useWishList } from "./contexts";
+
 import { Link, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 export default function App() {
+  const { itemsInCart } = useCart();
+  const { itemsInWishList } = useWishList();
   const [isNavVisible, setNavVisible] = useState("false");
 
   const toggleNav = () => {
@@ -48,12 +52,20 @@ export default function App() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link button " to="/cart">
+                <Link
+                  className="nav-link button"
+                  data-badge={itemsInCart.length}
+                  to="/cart"
+                >
                   Cart
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link button" to="/wishlist">
+                <Link
+                  className="nav-link button"
+                  data-badge={itemsInWishList.length}
+                  to="/wishlist"
+                >
                   WishList
                 </Link>
               </li>
@@ -78,7 +90,7 @@ export default function App() {
       </header>
 
       <div className="app-body">
-        <CartHeader />
+        {/* <CartHeader />   */}
       </div>
       <Routes>
         <Route path="/" element={<Home />} />
