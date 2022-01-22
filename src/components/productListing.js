@@ -33,7 +33,7 @@ export function ProductListing() {
     <div className="container">
       <div></div>
       <h1>Products</h1>
-      {status.loading && <span> Loading... </span>}
+      {/* {status.loading && <span> Loading... </span>} */}
       <Filters />
 
       <div className="cards-section">
@@ -91,7 +91,7 @@ export function ProductListing() {
                     ? "button button-primary card-button"
                     : "button card-button button-disable"
                 }
-                onClick={() => addToCart(product)}
+                onClick={() => {product.inStock && addToCart(product)}}
               >
                 Add to Cart
               </button>
