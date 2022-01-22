@@ -239,9 +239,56 @@ img {
   margin-top: 1rem;
 }
 
-@media only screen and (max-width: 900px) {
+/* ------------------------------- */
+.flex-container {
+  display: flex;
+  margin: 0;
+  position: relative;
+}
+
+.filters {
+  margin-top: 7rem;
+  width: 12rem;
+  max-width: 12rem;
+  min-width: 12rem;
+  position: fixed;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.fieldset {
+  padding: 1rem;
+  border-color: rgba(238, 238, 238, 0.705);
+}
+
+.legend {
+  font-weight: 300;
+}
+
+.label {
+  font-weight: 100;
+  color: var(--dark-gray);
+}
+
+.main-products {
+  margin-left: 12rem;
+  position: relative;
+}
+
+@media screen and (max-width: 900px) {
   .nav-top {
     margin: 0;
     width: 100%;
   }
+
+  /* .filters {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100vw;
+ 
+  } */
 }

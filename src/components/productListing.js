@@ -27,77 +27,85 @@ export function ProductListing() {
     }
   };
 
-  const {status, filteredData } = useProduct();
+  const { status, filteredData } = useProduct();
 
   return (
-    <div className="container">
-      <div></div>
-      <h1>Products</h1>
-      {/* {status.loading && <span> Loading... </span>} */}
-      <Filters />
+    <div className="container flex-container">
+      <div className="main-products">
+        <h1>Products</h1>
+        {/* {status.loading && <span> Loading... </span>} */}
 
-      <div className="cards-section">
-        {filteredData.map((product) => (
-          <div className="card">
-            {/* <Link to={`/products/${product.id}`}> */}
+        <div className="cards-section">
+          {filteredData.map((product) => (
+            <div className="card">
+              {/* <Link to={`/products/${product.id}`}> */}
 
-            <div className="card-img-rating">
-              <img
-                className={
-                  product.inStock ? "card-img" : "card-img card-filter"
-                }
-                src={product.img}
-                alt=""
-              />{" "}
-              {!product.inStock && (
-                <small class="card-overlay" style={{ padding: 0 }}>
-                  Out of Stock
-                </small>
-              )}
-              <div className="bottom-left">
-                {product.star} <span class="fa fa-star checked"> </span> |{" "}
-                {product.rating}k
-              </div>
-            </div>
-            {/* </Link> */}
-
-            <button
-              class="button card-badge-small"
-              onClick={() => addToWishList(product)}
-            >
-              <i
-                class=" fa fa-heart"
-                // style={{ color: toggleHeartRed ? "red" : "white" }}
-              ></i>
-            </button>
-            <div className="card-info">
-              {/* <Link to={`/products/${item.id}`}> */}
-              <div>
-                <p className="card-brand">{product.brand}</p>
-                <p className="card-name">{product.name}</p>
-                {/* <p>{product.star} <span class="fa fa-star checked"> </span> | {product.rating}k Ratings</p> */}
-                <p className="card-price">Rs.{product.price} </p>
-                <span className="card-old-price"> Rs. {product.oldprice}</span>
-                <span className="card-discount">
-                  {" "}
-                  ({product.discount}% OFF)
-                </span>
+              <div className="card-img-rating">
+                <img
+                  className={
+                    product.inStock ? "card-img" : "card-img card-filter"
+                  }
+                  src={product.img}
+                  alt=""
+                />{" "}
+                {!product.inStock && (
+                  <small class="card-overlay" style={{ padding: 0 }}>
+                    Out of Stock
+                  </small>
+                )}
+                <div className="bottom-left">
+                  {product.star} <span class="fa fa-star checked"> </span> |{" "}
+                  {product.rating}k
+                </div>
               </div>
               {/* </Link> */}
 
               <button
-                className={
-                  product.inStock
-                    ? "button button-primary card-button"
-                    : "button card-button button-disable"
-                }
-                onClick={() => {product.inStock && addToCart(product)}}
+                class="button card-badge-small"
+                onClick={() => addToWishList(product)}
               >
-                Add to Cart
+                <i
+                  class=" fa fa-heart"
+                  // style={{ color: toggleHeartRed ? "red" : "white" }}
+                ></i>
               </button>
+              <div className="card-info">
+                {/* <Link to={`/products/${item.id}`}> */}
+                <div>
+                  <p className="card-brand">{product.brand}</p>
+                  <p className="card-name">{product.name}</p>
+                  {/* <p>{product.star} <span class="fa fa-star checked"> </span> | {product.rating}k Ratings</p> */}
+                  <p className="card-price">Rs.{product.price} </p>
+                  <span className="card-old-price">
+                    {" "}
+                    Rs. {product.oldprice}
+                  </span>
+                  <span className="card-discount">
+                    {" "}
+                    ({product.discount}% OFF)
+                  </span>
+                </div>
+                {/* </Link> */}
+
+                <button
+                  className={
+                    product.inStock
+                      ? "button button-primary card-button"
+                      : "button card-button button-disable"
+                  }
+                  onClick={() => {
+                    product.inStock && addToCart(product);
+                  }}
+                >
+                  Add to Cart
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+      <div className="filters">
+        <Filters />
       </div>
     </div>
   );

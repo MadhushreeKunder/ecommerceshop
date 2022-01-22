@@ -14,10 +14,10 @@ export function Filters() {
 
   return (
     <>
-      <h1>Filters</h1>
-      <fieldset>
-        <legend>Sort By</legend>
-        <label>
+      <h2>Filters</h2>
+      <fieldset className="fieldset">
+        <legend className="legend">Sort By Price</legend>
+        <label className="label">
           <input
             type="radio"
             name="sort"
@@ -25,10 +25,11 @@ export function Filters() {
               dispatch({ type: "SORT", payload: "PRICE_HIGH_TO_LOW" })
             }
             checked={sortBy && sortBy === "PRICE_HIGH_TO_LOW"}
-          ></input>
-          Price - High to low{" "}
+          ></input>{" "}
+        Price: High to low{" "}
         </label>
-        <label>
+        <br />
+        <label className="label">
           <input
             type="radio"
             name="sort"
@@ -37,13 +38,13 @@ export function Filters() {
             }
             checked={sortBy && sortBy === "PRICE_LOW_TO_HIGH"}
           ></input>{" "}
-          Price- Low to High
+        Price: Low to High
         </label>
       </fieldset>
 
-      <fieldset style={{ marginTop: "1rem" }}>
-        <legend> Filters </legend>
-        <label>
+      <fieldset className="fieldset">
+        <legend className="legend"> Filters </legend>
+        <label className="label">
           <input
             type="checkbox"
             checked={showInventoryAll}
@@ -51,12 +52,13 @@ export function Filters() {
           />{" "}
           Include Out of Stock
         </label>
-        <label>
+        <br />
+        <label className="label">
           <input
             type="checkbox"
             checked={showFastDeliveryOnly}
             onChange={() => dispatch({ type: "TOGGLE_DELIVERY" })}
-          />
+          />{" "}
           Fast Delivery Only
         </label>
       </fieldset>
