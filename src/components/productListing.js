@@ -1,7 +1,7 @@
 import { useCart, useWishList, useProduct } from "../contexts";
 import { Link } from "react-router-dom";
 // import { products } from "../data";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import axios from "axios";
 
 export function ProductListing() {
@@ -46,11 +46,64 @@ export function ProductListing() {
     })();
   }, [])
 
+
+  const filterReducer = (state, action) => {
+    switch(action.type) {
+      case "SORT":
+        return (state = {...state, sortBy: action.payload});
+
+        default: 
+        return state;
+    }
+  }
+
+  const [ {sortBy} , dispatch ] = useReducer( filterReducer, {sortBy:null} );
+
+  const getSortedData = ( productList, sortBy) => {
+    if ( sortBy && sortBy === "PRICE_HIGH_TO_LOW") {
+      return productList.sort((a,b) => b["price"] - a["price"]);
+    }
+
+    if ( sortBy && sortBy === "PRICE_LOW_TO_HIGH") {
+      return productList.sort((a,b) => a["price"] - b["price"]);
+    }
+
+    return productList;
+  }
+
+
+  const sortedData = getSortedData(productsData, sortBy);
+
+
   return (
     <div className="container">
       <div></div>
       <h1>Products</h1>
       {loader && <span> Loading... </span>}
+
+      <fieldset>
+        <legend>Sort By</legend>
+        <label>
+          <input 
+          type = "radio"
+          name = "sort"
+          onChange={() => dispatch({ type: "SORT", payload: "PRICE_HIGH_TO_LOW"})
+        }
+        checked= {sortBy && sortBy === "PRICE_HIGH_TO_LOW"}
+        ></input>
+        Price - High to low {" "}
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="sort"
+            onChange={() => dispatch({ type: "SORT", payload: "PRICE_LOW_TO_HIGH" })
+            }
+            checked={sortBy && sortBy === "PRICE_LOW_TO_HIGH"}
+          ></input>
+     {" "}     Price- Low to High
+        </label>
+      </fieldset>
 
       <div className="cards-section">
         {productsData.map((item) => (
