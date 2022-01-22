@@ -4,4 +4,4 @@ export { CartHeader } from "./cartHeader";
 export { WishList } from "./wishList";
 export { Home } from "./home";
 export { ProductDetail } from "./productDetail";
-
+export { getFilteredData, getSortedData} from "./dataFilter"
