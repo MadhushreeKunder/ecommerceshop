@@ -32,20 +32,16 @@ export default function App() {
           >
             <span className="hamburger"></span>
           </button>
-          <a href="#">
+
+          <Link to="/">
             <img
               src="images/logo1.png"
               className="logo-img"
               alt="CORAL-UI"
             ></img>
-          </a>
+          </Link>
           <nav className={isNavVisible ? "nav" : "nav nav--visible"}>
             <ul className="nav-list nav-list--primary">
-              <li className="nav-item">
-                <Link className="nav-link button " to="/">
-                  Home{" "}
-                </Link>
-              </li>
               <li className="nav-item">
                 <Link className="nav-link button" to="/products">
                   Products
@@ -89,9 +85,7 @@ export default function App() {
         </div>
       </header>
 
-      <div className="app-body">
-        {/* <CartHeader />   */}
-      </div>
+      <div className="app-body">{/* <CartHeader />   */}</div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductListing />} />
