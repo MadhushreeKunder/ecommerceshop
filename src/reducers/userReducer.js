@@ -3,8 +3,8 @@ export const userReducer = (state, action) => {
     case "ADD_USER":
       return {
         _id: action.payload,
-        wishlist: [],
-        cart: [],
+        itemsInWishlist: [],
+        itemsInCart: [],
         loading: "",
       };
 
@@ -12,8 +12,10 @@ export const userReducer = (state, action) => {
       return {
         ...action.payload,
         loading: "",
-        cart: action.payload.cart.map((item) => item.productId),
-        wishList: action.payload.wishList.map((item) => item.productId),
+        itemsInCart: action.payload.itemsInCart.map((item) => item.productId),
+        itemsInWishList: action.payload.itemsInWishList.map(
+          (item) => item.productId
+        ),
       };
 
     case "STATUS":
@@ -79,7 +81,19 @@ export const userReducer = (state, action) => {
         }),
       };
 
-
+      case "ADD_TO_WISHLIST":
+        return {
+          ...state,
+          itemsInWishList: state.itemsInWishList.concat(action.payload),
+        };
+  
+      case "REMOVE_FROM_WISHLIST":
+        return {
+          ...state,
+          wishList: state.wishList.filter((item) => {
+            return item._id !== action.payload._id;
+          }),
+        };
 
     default:
       return state;
