@@ -50,7 +50,8 @@ export default function App() {
               <li className="nav-item">
                 <Link
                   className="nav-link button"
-                  data-badge={itemsInCart.length}
+                  data-badge= "4"
+                  // {itemsInCart.length}
                   to="/cart"
                 >
                   Cart
@@ -59,7 +60,8 @@ export default function App() {
               <li className="nav-item">
                 <Link
                   className="nav-link button"
-                  data-badge={itemsInWishList.length}
+                  data-badge= "3"
+                  // {itemsInWishList.length}
                   to="/wishlist"
                 >
                   WishList
