@@ -42,6 +42,45 @@ export const userReducer = (state, action) => {
     //     }),
     //   };
 
+    case "INCREMENT":
+      return {
+        ...state,
+        itemsInCart: state.itemsInCart.map((item) => {
+          return item.id === action.payload.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item;
+        }),
+      };
+
+    case "DECREMENT":
+      return (state = {
+        ...state,
+        itemsInCart: state.itemsInCart.map((item) =>
+          item.id === action.payload.id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        ),
+      });
+
+    case "ADD_TO_CART":
+      return {
+        ...state,
+        itemsInCart: state.itemsInCart.concat({
+          ...action.payload,
+          quantity: 1,
+        }),
+      };
+
+    case "REMOVE_FROM_CART":
+      return {
+        ...state,
+        itemsInCart: state.itemsInCart.filter((item) => {
+          return item.id !== action.payload.id;
+        }),
+      };
+
+
+
     default:
       return state;
   }
