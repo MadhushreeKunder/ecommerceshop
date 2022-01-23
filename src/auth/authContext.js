@@ -2,19 +2,26 @@ import axios from "axios";
 import { createContext, useContext, useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { backendURL } from "../utils/utils";
 
 export const AuthContext = createContext();
 
 function loginService(username, password) {
-  return axios.post("https://auth-3.madhushreekunde.repl.co/login", {
-    user: { username: username, password: password },
-  });
+  return axios.post(
+    `${backendURL}/login`,
+    {
+      user: { username: username, password: password },
+    }
+  );
 }
 
 function signupService(username, password, email) {
-  return axios.post("https://auth-3.madhushreekunde.repl.co/auth/signup", {
-    user: { username: username, password: password, email: email },
-  });
+  return axios.post(
+    `${backendURL}/auth/signup`,
+    {
+      user: { username: username, password: password, email: email },
+    }
+  );
 }
 
 export const addUser = ({ data, setUser, setToken }) => {
