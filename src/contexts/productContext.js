@@ -2,6 +2,7 @@ import { createContext, useContext, useReducer, useEffect } from "react";
 import { getFilteredData, getSortedData } from "../components/dataFilter";
 import { filterReducer } from "../reducers/filterReducer";
 import axios from "axios";
+import { backendURL } from "../utils/utils";
 
 export const ProductContext = createContext();
 
@@ -14,7 +15,7 @@ export function ProductProvider({ children }) {
           payload: { loading: "loading data from server.." },
         });
         const response = await axios.get(
-          "https://product-id-handler-middleware-timestamps-1.madhushreekunde.repl.co/products"
+         `${backendURL}/products`
         );
         const productsData = response.data.products;
         dispatch({ type: "ADD_DATA", payload: productsData });
