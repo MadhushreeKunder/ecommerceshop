@@ -1,5 +1,4 @@
-import { useCart, useWishList, useProduct } from "../contexts";
-import { useState } from "react";
+import { useProduct } from "../contexts";
 import { Filters } from "./filter/filters";
 import {
   addToCartApi,
@@ -22,7 +21,7 @@ export function ProductListing() {
     <div className="container flex-container">
       <div className="main-products">
         <h1>Products</h1>
-        {/* {status.loading && <span> Loading... </span>} */}
+        {status.loading && <span> Loading... </span>}
 
         <div className="cards-section">
           {filteredData.map((product) => (
