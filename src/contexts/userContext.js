@@ -43,7 +43,7 @@ export function UserProvider({ children }) {
   const [state, dispatch] = useReducer(userReducer, {
     itemsInCart: [],
     itemsInWishList: [],
-    _id: "1",
+    id: "1",
     addresses: [],
     loading: "",
   });

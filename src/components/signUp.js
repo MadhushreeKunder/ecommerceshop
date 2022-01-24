@@ -6,7 +6,7 @@ import { useAuth } from "../auth/authContext";
 
 export const SignUp = () => {
   const { status, signUpUserWithCreds } = useAuth();
-  const { userDispatch } = useUser();
+  const { dispatch } = useUser();
   const { state } = useLocation();
   const navigate = useNavigate();
   const [signUpCredentials, setSignUpCredentials] = useState({
@@ -37,7 +37,7 @@ export const SignUp = () => {
             signUpCredentials.email
           );
           if (result.success) {
-            userDispatch({ type: "ADD_USER", payload: result.user._id });
+            dispatch({ type: "ADD_USER", payload: result.user.id });
             navigate(state?.from ? state.from : "/");
           }
         } else {
@@ -193,7 +193,7 @@ export const SignUp = () => {
         </small>
       </form>
       <h3>
-        {status.loading && (
+        {status?.loading && (
           <img src="/images/loading.svg" alt="loading" className="loading" />
         )}
       </h3>

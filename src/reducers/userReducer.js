@@ -40,7 +40,7 @@ export const userReducer = (state, action) => {
       return {
         ...state,
         addresses: state.addresses.map((item) => {
-          return item._id === action.payload.id ? action.payload.address : item;
+          return item.id === action.payload.id ? action.payload.address : item;
         }),
       };
 
@@ -91,7 +91,7 @@ export const userReducer = (state, action) => {
         return {
           ...state,
           wishList: state.wishList.filter((item) => {
-            return item._id !== action.payload._id;
+            return item.id !== action.payload.id;
           }),
         };
 

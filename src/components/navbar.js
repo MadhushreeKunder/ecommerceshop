@@ -56,7 +56,7 @@ export function NavBar() {
               <li className="nav-item">
                 <NavLink
                   className="nav-link button"
-                  data-badge={token && state?.wishList.length}
+                  data-badge={token && state?.itemsInWishList.length}
                   // {itemsInWishList.length}
                   to="/wishlist"
                 > 
