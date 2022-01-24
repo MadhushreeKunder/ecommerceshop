@@ -7,3 +7,4 @@ export { ProductDetail } from "./productDetail";
 export { getFilteredData, getSortedData } from "./dataFilter";
 export { Login } from "./login";
 export { SignUp} from "./signUp";
+export { NavBar } from "./navbar";
