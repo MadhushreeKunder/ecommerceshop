@@ -1,9 +1,14 @@
 import { useCart, useWishList, useProduct } from "../contexts";
 import { useState } from "react";
 import { Filters } from "./filter/filters";
-import {addToCartApi,
+import {
+  addToCartApi,
   addToWishListApi,
-  deleteFromWishListApi,} from "../api/apiSync"
+  deleteFromWishListApi,
+} from "../api/apiSync";
+import { loginAlert } from "../utils/utils";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useAuth } from "../auth/authContext";
 
 export function ProductListing() {
   const { itemsInCart, dispatch: cartDispatch } = useCart();
@@ -31,6 +36,8 @@ export function ProductListing() {
   };
 
   const { status, filteredData } = useProduct();
+  const { token } = useAuth();
+  const { navigate } = useNavigate();
 
   return (
     <div className="container flex-container">
@@ -90,18 +97,42 @@ export function ProductListing() {
                 </div>
                 {/* </Link> */}
 
-                <button
+                {/* <button
                   className={
                     product.inStock
                       ? "button button-primary card-button"
                       : "button card-button button-disable"
                   }
                   onClick={() => {
-                    product.inStock && cartDispatch({type: "ADD_TO_CART", payload: product});
+                    if (token) {
+                      if (product.inStock){
+                        () => addToCartApi(product, dispatch)
+                      }
+                    } () => 
+
+                    product.inStock && token ? () => addToCartApi(product, dispatch) : null;
                   }}
                 >
                   Add to Cart
-                </button>
+                </button> */}
+                {product.inStock ? (
+                  <button
+                    className={"button button-primary card-button"}
+                    onClick={
+                      () => addToCartApi(product, cartDispatch)
+
+                      // token
+                      //   ? () => addToCartApi(product, cartDispatch)
+                      //   : () => navigate("/login")
+                    }
+                  >
+                    Add to Cart
+                  </button>
+                ) : (
+                  <button className={"button card-button button-disable"}>
+                    Add to Cart
+                  </button>
+                )}
               </div>
             </div>
           ))}
