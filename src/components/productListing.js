@@ -1,18 +1,21 @@
 import { useCart, useWishList, useProduct } from "../contexts";
 import { useState } from "react";
 import { Filters } from "./filter/filters";
+import {addToCartApi,
+  addToWishListApi,
+  deleteFromWishListApi,} from "../api/apiSync"
 
 export function ProductListing() {
-  const { itemsInCart, setItemsInCart } = useCart();
+  const { itemsInCart, dispatch: cartDispatch } = useCart();
   const { itemsInWishList, setItemsInWishList } = useWishList();
   // const { toggleHeartRed, setToggleHeartRed } = useWishList();
 
-  const addToCart = (product) => {
-    const itemExists = itemsInCart.find((item) => product.name === item.name);
-    if (!itemExists) {
-      setItemsInCart([...itemsInCart, { ...product, quantity: 1 }]);
-    }
-  };
+  // const addToCart = (product) => {
+  //   const itemExists = itemsInCart.find((item) => product.name === item.name);
+  //   if (!itemExists) {
+  //     setItemsInCart([...itemsInCart, { ...product, quantity: 1 }]);
+  //   }
+  // };
 
   const addToWishList = (product) => {
     const itemExists = itemsInWishList.find(
@@ -94,7 +97,7 @@ export function ProductListing() {
                       : "button card-button button-disable"
                   }
                   onClick={() => {
-                    product.inStock && addToCart(product);
+                    product.inStock && cartDispatch({type: "ADD_TO_CART", payload: product});
                   }}
                 >
                   Add to Cart
