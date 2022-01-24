@@ -6,37 +6,10 @@ import {
 } from "../api/apiSync";
 
 export function Cart() {
-  // const { itemsInCart, setItemsInCart } = useCart();
-
-  // const incrementQuantity = (itemId) => {
-  //   setItemsInCart((products) =>
-  //     products.map((product) =>
-  //       product.id === itemId
-  //         ? { ...product, quantity: product.quantity + 1 }
-  //         : product
-  //     )
-  //   );
-  // };
-
-  // const removeItemFromCart = (removeItem) => {
-  //   setItemsInCart(itemsInCart.filter((product) => product !== removeItem));
-  // };
-
-  // const decrementQuantity = (itemId) => {
-  //   setItemsInCart((products) =>
-  //     products.map((product) =>
-  //       product.quantity <= 1
-  //         ? removeItemFromCart(product)
-  //         : itemId === product.id
-  //         ? { ...product, quantity: product.quantity - 1 }
-  //         : product
-  //     )
-  //   );
-  // };
 
   const { state, dispatch: cartDispatch } = useUser();
 
-  const getTotalCost = (item) => {
+  const getTotalCost = () => {
     return state?.itemsInCart.reduce(
       (acc, item) => acc + item.quantity * item.price,
       0
