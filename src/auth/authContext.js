@@ -6,31 +6,31 @@ import { backendURL } from "../utils/utils";
 
 export const AuthContext = createContext();
 
-function loginService(username, password) {
-  return axios.post(
-    `${backendURL}/login`,
-    {
-      user: { username: username, password: password },
-    }
-  );
-}
+// function loginService(username, password) {
+//   return axios.post(
+//     `${backendURL}/auth/login`,
+//     {
+//       user: { username: username, password: password },
+//     }
+//   );
+// }
 
-function signupService(username, password, email) {
-  return axios.post(
-    `${backendURL}/auth/signup`,
-    {
-      user: { username: username, password: password, email: email },
-    }
-  );
-}
+// function signupService(username, password, email) {
+//   return axios.post(
+//     `${backendURL}/auth/signup`,
+//     {
+//       user: { username: username, password: password, email: email },
+//     }
+//   );
+// }
 
 export const addUser = ({ data, setUser, setToken }) => {
   setUser(data.user);
   setToken(data.token);
   localStorage?.setItem("token", JSON.stringify({ token: data.token }));
 
-  const { _id, username, email } = data.user;
-  localStorage?.setItem("user", JSON.stringify({ _id, username, email }));
+  const { id, username, email } = data.user;
+  localStorage?.setItem("user", JSON.stringify({ id, username, email }));
   setupAuthHeaderForServiceCalls(data.token);
 };
 
@@ -78,14 +78,17 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const userLoggedIn = JSON.parse(localStorage?.getItem("user"));
-    userLoggedIn?._id && setUser({ ...userLoggedIn });
+    userLoggedIn?.id && setUser({ ...userLoggedIn });
     setupAuthExceptionHandler(logout, navigate);
   });
 
   async function loginUserWithCreds(username, password) {
     try {
       setStatus({ loading: "Please wait..." });
-      const { data } = await loginService(username, password);
+      const { data } = await axios.post(`${backendURL}/auth/login`, {
+        username: username,
+        password: password,
+      });
 
       if (data.success) {
         addUser({ data, setUser, setToken });
@@ -104,7 +107,11 @@ export const AuthProvider = ({ children }) => {
   async function signUpUserWithCreds(username, password, email) {
     try {
       setStatus({ loading: "Adding user info.." });
-      const { data } = await signupService(username, password, email);
+      const { data } = await await axios.post(`${backendURL}/auth/signup`, {
+        username: username,
+        password: password,
+        email: email,
+      });
 
       if (data.success) {
         addUser({ data, setUser, setToken });
