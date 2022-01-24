@@ -5,7 +5,7 @@ import { useUser } from "../contexts/userContext";
 import { useAuth } from "../auth/authContext";
 
 export const SignUp = () => {
-  const { status, signUpUserWithCredentials } = useAuth();
+  const { status, signUpUserWithCreds } = useAuth();
   const { userDispatch } = useUser();
   const { state } = useLocation();
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ export const SignUp = () => {
         )
       ) {
         if (signUpCredentials.password === signUpCredentials.confirmPassword) {
-          const result = await signUpUserWithCredentials(
+          const result = await signUpUserWithCreds(
             signUpCredentials.username,
             signUpCredentials.password,
             signUpCredentials.email

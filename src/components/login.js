@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export function Login() {
-  const { status, loginUserWithCredentials } = useAuth();
+  const { status, loginUserWithCreds } = useAuth();
   const { state } = useLocation();
   const navigate = useNavigate();
   const [loginCredentials, setLoginCredentials] = useState({
@@ -19,7 +19,7 @@ export function Login() {
     // 1: login
 
     if (loginCredentials.username && loginCredentials.password) {
-      const result = await loginUserWithCredentials(
+      const result = await loginUserWithCreds(
         loginCredentials.username,
         loginCredentials.password
       );
