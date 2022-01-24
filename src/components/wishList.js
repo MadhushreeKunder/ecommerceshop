@@ -1,17 +1,21 @@
-import { useWishList } from "../contexts";
+import { useUser } from "../contexts";
+import { deleteFromWishListApi } from "../api/apiSync";
 
 export function WishList() {
-  const { itemsInWishList, setItemsInWishList } = useWishList();
+  const { state, dispatch } = useUser();
 
-  const removeItemFromWishList = (removeItem) => {
-    setItemsInWishList(itemsInWishList.filter((item) => item !== removeItem));
-  };
+  // const removeItemFromWishList = (removeItem) => {
+  //   setItemsInWishList(itemsInWishList.filter((item) => item !== removeItem));
+  // };
 
   return (
     <div className="container">
       <h1>WishList</h1>
+      {state.itemsInWishList.length === 0 && (
+        <h2>Empty Wishlist, make some wishes</h2>
+      )}
       <div className="cards-section flex-start">
-        {itemsInWishList.map((item) => (
+        {state?.itemsInWishList.map((item) => (
           <div className="card">
             <img className="card-img" src={item.img} alt="" />
             <div className="card-info">
@@ -19,7 +23,7 @@ export function WishList() {
               <small className="card-price">Rs.{item.price}</small>
               <button
                 className="button button-secondary card-button"
-                onClick={() => removeItemFromWishList(item)}
+                onClick={() => deleteFromWishListApi(item, dispatch)}
               >
                 Remove
               </button>
