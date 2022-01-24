@@ -18,6 +18,18 @@ export const filterReducer = (state, action) => {
     case "STATUS":
       return (state = { ...state, status: action.payload });
 
+      case "CLEAR_FILTERS":
+        return {
+          ...state,
+          showInventoryAll: true,
+          showFastDelivery: false,
+          sortBy: null,
+          ratings: 5,
+        };
+
+        case "RATINGS":
+          return { ...state, ratings: action.payload };
+
     default:
       return state;
   }
