@@ -324,6 +324,38 @@ export const products = [
     "fastDelivery": true
   },
 
+  /** 
+* Paste one or more documents here
+*/
+{
+  "_id": {
+        "$oid": "61eebfa57e97a5aff0ba3f54"
+    },
+
+  "id": "abcdefghi",
+  
+  "wishList": { "productId": '61eaed7b900dc566642978d6' },
+
+  "cart": [{
+    "productId": "61eaed7b900dc566642978d6", 
+    "quantity": 2
+  }],
+
+  "addresses": [
+    {
+      "name": "Madhushree",
+      "phoneNumber": 1234567890,
+      "pinCode": 400093,
+      "city": "Mumbai",
+      "address": "B/2, Giriraj Indus Estate, Mahakali Caves Rd, Bandra (west)",
+      "state": "Maharashtra",
+      "country": "India", 
+    }
+  ]
+   
+}
+  
+
 
   
 ];
