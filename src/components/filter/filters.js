@@ -62,6 +62,11 @@ export function Filters() {
           Fast Delivery Only
         </label>
       </fieldset>
+
+      <button className="button"
+      onClick={()=>dispatch({type: "CLEAR_FILTERS"})}>
+      Clear Filters
+      </button>
     </>
   );
 }
