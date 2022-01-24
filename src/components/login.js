@@ -31,19 +31,26 @@ export function Login() {
     }
   };
   
+//   return (
+//     <>
+//       <h1> Login/Logout toggle </h1>
+//       <button onClick={loginHandler}>
+//         {isUserLogin ? "I am logged In" : "I am logged out"}
+//       </button>
+//     </>
+//   );
+
+//   function loginHandler() {
+//     isUserLogin ? logout() : loginUserWithCredentials("aman", "kanishk");
+
+
+//   }
+
   return (
-    <>
-      <h1> Login/Logout toggle </h1>
-      <button onClick={loginHandler}>
-        {isUserLogin ? "I am logged In" : "I am logged out"}
-      </button>
-    </>
+    <div className='login-form'>
+      <h2>Login</h2>
+      </div>
   );
 
-  function loginHandler() {
-    isUserLogin ? logout() : loginUserWithCredentials("aman", "kanishk");
-
-
-  }
 }
 
