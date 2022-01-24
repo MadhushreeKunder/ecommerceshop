@@ -28,10 +28,10 @@ export function UserProvider({ children }) {
         const data = response.data.user;
         dispatch({ type: "LOAD_USER_DETAILS", payload: data });
       } catch (error) {
-        if (error.response.status === 401) {
-          //   navigate("/login");
-          console.error("error from usercontext");
-        }
+        // if (error?.response.status === 401) {
+        //   //   navigate("/login");
+        //   console.error("error from usercontext");
+        // }
         console.log("UserContext error:", error.response);
       }
     })();
