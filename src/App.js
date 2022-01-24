@@ -20,8 +20,8 @@ export default function App() {
 
       <div className="app-body">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<ProductListing />} />
+          <Route path="/" element={<Home />} ></Route>
+          <Route path="/products" element={<ProductListing />} ></Route>
           {/* <Route path="/products/:productId" element={<ProductDetail />} /> */}
           <Route
             path="/cart"
@@ -30,7 +30,7 @@ export default function App() {
                 <Cart />
               </PrivateRoute>
             }
-          />
+          ></Route>
           <Route
             path="/wishlist"
             element={
@@ -38,9 +38,9 @@ export default function App() {
                 <WishList />
               </PrivateRoute>
             }
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          ></Route>
+          <Route path="/login" element={<Login />} ></Route>
+          <Route path="/signup" element={<SignUp />} ></Route>
         </Routes>
       </div>
     </div>
