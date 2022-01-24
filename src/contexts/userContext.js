@@ -49,7 +49,7 @@ export function UserProvider({ children }) {
   });
 
   return (
-    <UserContext.Provider value={{ itemsInCart: state.itemsInCart, dispatch }}>
+    <UserContext.Provider value={{ state, dispatch }}>
       {children}
     </UserContext.Provider>
   );
