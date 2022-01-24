@@ -36,20 +36,6 @@ export function Login() {
     }
   };
 
-  //   return (
-  //     <>
-  //       <h1> Login/Logout toggle </h1>
-  //       <button onClick={loginHandler}>
-  //         {isUserLogin ? "I am logged In" : "I am logged out"}
-  //       </button>
-  //     </>
-  //   );
-
-  //   function loginHandler() {
-  //     isUserLogin ? logout() : loginUserWithCredentials("aman", "kanishk");
-
-  //   }
-
   return (
     <div className="login-form">
       <h2>Login</h2>
@@ -60,7 +46,7 @@ export function Login() {
         <input
           type="text"
           placeholder="Enter username"
-          className="input-txt-error form-input"
+          className="form-input"
           required
           value={loginCredentials.username}
           onChange={(e) =>
@@ -80,7 +66,7 @@ export function Login() {
         <input
           type={loginCredentials.showPassword ? "text" : "password"}
           placeholder="Enter password"
-          className="input-txt-error form-input"
+          className="form-input"
           required
           value={loginCredentials.password}
           onChange={(e) =>
