@@ -2,7 +2,7 @@ export const userReducer = (state, action) => {
   switch (action.type) {
     case "ADD_USER":
       return {
-        _id: action.payload,
+        id: action.payload,
         itemsInWishlist: [],
         itemsInCart: [],
         loading: "",
@@ -36,13 +36,13 @@ export const userReducer = (state, action) => {
         addresses: action.payload,
       };
 
-    //   case "EDIT_ADDRESS":
-    //   return {
-    //     ...state,
-    //     addresses: state.addresses.map((item) => {
-    //       return item._id === action.payload.id ? action.payload.address : item;
-    //     }),
-    //   };
+      case "EDIT_ADDRESS":
+      return {
+        ...state,
+        addresses: state.addresses.map((item) => {
+          return item._id === action.payload.id ? action.payload.address : item;
+        }),
+      };
 
     case "INCREMENT":
       return {
