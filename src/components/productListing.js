@@ -9,31 +9,10 @@ import {
 import { loginAlert } from "../utils/utils";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/authContext";
+import { useUser } from "../contexts/userContext";
 
 export function ProductListing() {
-  const { itemsInCart, dispatch: cartDispatch } = useCart();
-  const { itemsInWishList, setItemsInWishList } = useWishList();
-  // const { toggleHeartRed, setToggleHeartRed } = useWishList();
-
-  // const addToCart = (product) => {
-  //   const itemExists = itemsInCart.find((item) => product.name === item.name);
-  //   if (!itemExists) {
-  //     setItemsInCart([...itemsInCart, { ...product, quantity: 1 }]);
-  //   }
-  // };
-
-  const addToWishList = (product) => {
-    const itemExists = itemsInWishList.find(
-      (item) => product.name === item.name
-    );
-    if (!itemExists) {
-      setItemsInWishList([...itemsInWishList, product]);
-      // setToggleHeartRed([!toggleHeartRed]);
-    } else {
-      setItemsInWishList(itemsInWishList.filter((item) => item !== itemExists));
-      // setToggleHeartRed(toggleHeartRed);
-    }
-  };
+  const { state, dispatch: cartDispatch } = useUser();
 
   const { status, filteredData } = useProduct();
   const { token } = useAuth();
@@ -70,21 +49,38 @@ export function ProductListing() {
               </div>
               {/* </Link> */}
 
-              <button
-                class="button card-badge-small"
-                onClick={() => addToWishList(product)}
-              >
-                <i
-                  class=" fa fa-heart"
-                  // style={{ color: toggleHeartRed ? "red" : "white" }}
-                ></i>
-              </button>
+              {token ? (
+                <button
+                  class="button card-badge-small"
+                  onClick={
+                    state?.itemsInWishList.find(
+                      (item) => item.id === product.id
+                    )
+                      ? () => {
+                          deleteFromWishListApi(product, cartDispatch);
+                        }
+                      : () => {
+                          addToWishListApi(product, cartDispatch);
+                        }
+                  }
+                >
+                  <i class=" fa fa-heart" style={{ color: "red" }}></i>
+                </button>
+              ) : (
+                <button
+                  class="button card-badge-small"
+                  onClick={() => navigate("/login")}
+                >
+                  <i class=" fa fa-heart"></i>
+                </button>
+              )}
+
               <div className="card-info">
                 {/* <Link to={`/products/${item.id}`}> */}
                 <div>
                   <p className="card-brand">{product.brand}</p>
                   <p className="card-name">{product.name}</p>
-                  {/* <p>{product.star} <span class="fa fa-star checked"> </span> | {product.rating}k Ratings</p> */}
+                  <p>{product.star} <span class="fa fa-star checked"> </span> | {product.rating}k Ratings</p>
                   <p className="card-price">Rs.{product.price} </p>
                   <span className="card-old-price">
                     {" "}
@@ -97,24 +93,6 @@ export function ProductListing() {
                 </div>
                 {/* </Link> */}
 
-                {/* <button
-                  className={
-                    product.inStock
-                      ? "button button-primary card-button"
-                      : "button card-button button-disable"
-                  }
-                  onClick={() => {
-                    if (token) {
-                      if (product.inStock){
-                        () => addToCartApi(product, dispatch)
-                      }
-                    } () => 
-
-                    product.inStock && token ? () => addToCartApi(product, dispatch) : null;
-                  }}
-                >
-                  Add to Cart
-                </button> */}
                 {product.inStock ? (
                   <button
                     className={"button button-primary card-button"}
