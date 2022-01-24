@@ -5,8 +5,13 @@ import {
   addToWishListApi,
   deleteFromWishListApi,
 } from "../api/apiSync";
-import { loginAlert } from "../utils/utils";
-import { Navigate, useNavigate } from "react-router-dom";
+import {
+  found,
+  isProdInCart,
+  isProdInWishList,
+  loginAlert,
+} from "../utils/utils";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/authContext";
 import { useUser } from "../contexts/userContext";
 
@@ -15,7 +20,7 @@ export function ProductListing() {
 
   const { status, filteredData } = useProduct();
   const { token } = useAuth();
-  const { navigate } = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <div className="container flex-container">
@@ -25,7 +30,7 @@ export function ProductListing() {
 
         <div className="cards-section">
           {filteredData.map((product) => (
-            <div className="card">
+            <div className="card" key={product.id}>
               {/* <Link to={`/products/${product.id}`}> */}
 
               <div className="card-img-rating">
@@ -34,7 +39,7 @@ export function ProductListing() {
                     product.inStock ? "card-img" : "card-img card-filter"
                   }
                   src={product.img}
-                  alt=""
+                  alt={product.name}
                 />{" "}
                 {!product.inStock && (
                   <small class="card-overlay" style={{ padding: 0 }}>
@@ -68,7 +73,7 @@ export function ProductListing() {
               ) : (
                 <button
                   class="button card-badge-small"
-                  onClick={() => navigate("/login")}
+                  onClick={navigate("login")}
                 >
                   <i class=" fa fa-heart"></i>
                 </button>
@@ -79,7 +84,10 @@ export function ProductListing() {
                 <div>
                   <p className="card-brand">{product.brand}</p>
                   <p className="card-name">{product.name}</p>
-                  <p>{product.star} <span class="fa fa-star checked"> </span> | {product.rating}k Ratings</p>
+                  {/* <p>
+                    {product.star} <span class="fa fa-star checked"> </span> |{" "}
+                    {product.rating}k Ratings
+                  </p> */}
                   <p className="card-price">Rs.{product.price} </p>
                   <span className="card-old-price">
                     {" "}
@@ -91,25 +99,32 @@ export function ProductListing() {
                   </span>
                 </div>
                 {/* </Link> */}
-
-                {product.inStock ? (
-                  <button
-                    className={"button button-primary card-button"}
-                    onClick={
-                      () => addToCartApi(product, cartDispatch)
-
-                      // token
-                      //   ? () => addToCartApi(product, cartDispatch)
-                      //   : () => navigate("/login")
-                    }
-                  >
-                    Add to Cart
-                  </button>
-                ) : (
-                  <button className={"button card-button button-disable"}>
-                    Add to Cart
-                  </button>
-                )}
+                <div>
+                  {product.inStock ? (
+                    state && found(state.itemsInCart, product.id) ? (
+                      <Link to="/cart">
+                        <button>
+                          <p>{isProdInCart(product, state, token)}</p>
+                        </button>
+                      </Link>
+                    ) : (
+                      <button
+                        className={"button button-primary card-button"}
+                        onClick={
+                          token
+                            ? () => addToCartApi(product, cartDispatch)
+                            : navigate("login")
+                        }
+                      >
+                        {isProdInCart(product, state, token)}
+                      </button>
+                    )
+                  ) : (
+                    <button className={"button card-button button-disable"}>
+                      {isProdInCart(product, state, token)}
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           ))}
