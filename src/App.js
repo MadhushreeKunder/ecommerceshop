@@ -2,20 +2,17 @@ import "./styles.css";
 import {
   ProductListing,
   Cart,
-  CartHeader,
   WishList,
   Home,
   ProductDetail,
+  Login,
+  SignUp,
 } from "./components";
-import { useCart, useWishList } from "./contexts";
-import { useUser} from "./contexts/userContext";
 
 import { Link, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 export default function App() {
-  // const { itemsInCart } = useCart();
-  // const { itemsInWishList } = useWishList();
   const [isNavVisible, setNavVisible] = useState("false");
 
   const toggleNav = () => {
@@ -51,7 +48,7 @@ export default function App() {
               <li className="nav-item">
                 <Link
                   className="nav-link button"
-                  data-badge= "4"
+                  data-badge="4"
                   // {itemsInCart.length}
                   to="/cart"
                 >
@@ -61,7 +58,7 @@ export default function App() {
               <li className="nav-item">
                 <Link
                   className="nav-link button"
-                  data-badge= "3"
+                  data-badge="3"
                   // {itemsInWishList.length}
                   to="/wishlist"
                 >
@@ -71,14 +68,14 @@ export default function App() {
             </ul>
             <ul className="nav-list nav-list--secondary">
               <li className="nav-item">
-                <Link className="nav-link button " to="/">
+                <Link className="nav-link button " to="/login">
                   Log In{" "}
                 </Link>
               </li>
               <li className="nav-item">
                 <Link
                   className="nav-link button button-secondary nav-link--button"
-                  to="/"
+                  to="/signup"
                 >
                   Sign In{" "}
                 </Link>
@@ -95,6 +92,8 @@ export default function App() {
         {/* <Route path="/products/:productId" element={<ProductDetail />} /> */}
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<WishList />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </div>
   );
