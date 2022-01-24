@@ -8,13 +8,14 @@ import {
   ProductDetail,
 } from "./components";
 import { useCart, useWishList } from "./contexts";
+import { useUser} from "./contexts/userContext";
 
 import { Link, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 export default function App() {
-  const { itemsInCart } = useCart();
-  const { itemsInWishList } = useWishList();
+  // const { itemsInCart } = useCart();
+  // const { itemsInWishList } = useWishList();
   const [isNavVisible, setNavVisible] = useState("false");
 
   const toggleNav = () => {
