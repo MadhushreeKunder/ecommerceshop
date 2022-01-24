@@ -336,6 +336,61 @@ img {
   transition: 0.3s ease-in-out;
 }
 
+/* ----------------------login ----*/
+
+.login-form {
+  font-size: 1.2rem;
+  box-shadow: var(--box-shadow);
+
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* text-align: center; */
+  margin: 10rem auto;
+  border-radius: 1rem;
+  width: 30rem;
+}
+
+.signup-form{
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-input {
+  position: relative;
+  width: 15rem;
+  margin-top: 1rem;
+}
+
+.form-input {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  width: 15rem;
+}
+
+.login-show-password {
+  right: 1.4rem;
+  top: 3.4rem;
+  position: absolute;
+  border: none;
+  background-color: white;
+}
+
+.login-button {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.login-signup {
+  color: var(--dark-coral);
+}
+
 @media screen and (max-width: 900px) {
   .nav-top {
     margin: 0;
