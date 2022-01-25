@@ -9,7 +9,7 @@ export const Address = () => {
   return (
     <div className="address-add login-form">
       <h2>
-        <i class="fas fa-map-marker-alt"></i> Addresses
+        <i className="fas fa-map-marker-alt"></i> Addresses
       </h2>
       {addNewAddress ? (
         <button
@@ -19,14 +19,14 @@ export const Address = () => {
             setAddNewAddress(() => !addNewAddress);
           }}
         >
-          <i class="fas fa-arrow-left"></i> Go Back
+          <i className="fas fa-arrow-left"></i> Go Back
         </button>
       ) : (
         <button
-        className="button button-secondary"
-        onClick={() => setAddNewAddress(() => !addNewAddress)}
+          className="button button-secondary"
+          onClick={() => setAddNewAddress(() => !addNewAddress)}
         >
-          <i class="fas fa-plus"></i> Add new Address
+          <i className="fas fa-plus"></i> Add new Address
         </button>
       )}
       {!editAdd.toggle && addNewAddress && (
