@@ -72,7 +72,7 @@ export function NavBar() {
                   // style={{ display: "flex", alignItems: "center" }}
                 >
                   <i
-                    class="fas fa-user-circle"
+                    className="fas fa-user-circle"
                     style={{ fontSize: "1.5rem", marginRight: "5px" }}
                   ></i>{" "}
                   {""} Account
@@ -80,7 +80,6 @@ export function NavBar() {
               </li>
             </ul>
             <ul className="nav-list nav-list--secondary">
-              
               <li className="nav-item">
                 {/* <NavLink
                   className="nav-link button button-secondary nav-link--button"
