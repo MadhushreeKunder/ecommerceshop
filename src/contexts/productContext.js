@@ -14,37 +14,28 @@ export function ProductProvider({ children }) {
           type: "STATUS",
           payload: { loading: "loading data from server.." },
         });
-        const response = await axios.get(
-         `${backendURL}/products`
-        );
-        const productsData = response.data.products;
-        dispatch({ type: "ADD_DATA", payload: productsData });
+        const response = await axios.get(`${backendURL}/products`);
+        const data = response.data.products;
+        dispatch({ type: "ADD_DATA", payload: data });
         dispatch({
           type: "STATUS",
-          payload: { loading: "loading.." },
+          payload: { loading: "" },
         });
       } catch (error) {
         console.error(error);
         dispatch({
           type: "STATUS",
-          payload: { loading: "Try again later..." },
+          payload: { error: "Try again later..." },
         });
       }
     })();
   }, []);
 
   const [
-    {
-      productsData,
-      status,
-      sortBy,
-      showInventoryAll,
-      showFastDeliveryOnly,
-      rating,
-    },
+    { data, status, sortBy, showInventoryAll, showFastDeliveryOnly, rating },
     dispatch,
   ] = useReducer(filterReducer, {
-    productsData: [],
+    data: [],
     status: { loading: "", success: "", error: "" },
     ratings: 5,
     sortBy: null,
@@ -52,7 +43,7 @@ export function ProductProvider({ children }) {
     showFastDeliveryOnly: false,
   });
 
-  const sortedData = getSortedData(productsData, sortBy);
+  const sortedData = getSortedData(data, sortBy);
   const filteredData = getFilteredData(sortedData, {
     showInventoryAll,
     showFastDeliveryOnly,

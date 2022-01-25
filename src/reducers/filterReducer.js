@@ -13,22 +13,22 @@ export const filterReducer = (state, action) => {
         showFastDeliveryOnly: !state.showFastDeliveryOnly,
       });
     case "ADD_DATA":
-      return (state = { ...state, productsData: action.payload });
+      return (state = { ...state, data: action.payload });
 
     case "STATUS":
       return (state = { ...state, status: action.payload });
 
-      case "CLEAR_FILTERS":
-        return {
-          ...state,
-          showInventoryAll: true,
-          showFastDelivery: false,
-          sortBy: null,
-          ratings: 5,
-        };
+    case "CLEAR_FILTERS":
+      return {
+        ...state,
+        showInventoryAll: true,
+        showFastDelivery: false,
+        sortBy: null,
+        ratings: 5,
+      };
 
-        case "RATINGS":
-          return { ...state, ratings: action.payload };
+    case "RATINGS":
+      return { ...state, ratings: action.payload };
 
     default:
       return state;
