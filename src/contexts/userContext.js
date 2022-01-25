@@ -30,7 +30,7 @@ export function UserProvider({ children }) {
   const [userState, userDispatch] = useReducer(userReducer, {
     cart: [],
     wishList: [],
-    id: "1",
+    _id: "1",
     addresses: [],
     loading: "",
   });

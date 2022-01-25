@@ -40,7 +40,7 @@ export const userReducer = (userState, action) => {
       return {
         ...userState,
         addresses: userState.addresses.map((item) => {
-          return item.id === action.payload.id ? action.payload.address : item;
+          return item._id === action.payload._id ? action.payload.address : item;
         }),
       };
 
@@ -48,7 +48,7 @@ export const userReducer = (userState, action) => {
       return {
         ...userState,
         cart: userState.cart.map((item) => {
-          return item.id === action.payload.id
+          return item._id === action.payload._id
             ? { ...item, quantity: item.quantity + 1 }
             : item;
         }),
@@ -58,7 +58,7 @@ export const userReducer = (userState, action) => {
       return {
         ...userState,
         cart: userState.cart.map((item) =>
-          item.id === action.payload.id
+          item._id === action.payload._id
             ? { ...item, quantity: item.quantity - 1 }
             : item
         ),
@@ -77,7 +77,7 @@ export const userReducer = (userState, action) => {
       return {
         ...userState,
         cart: userState.cart.filter((item) => {
-          return item.id !== action.payload.id;
+          return item._id !== action.payload._id;
         }),
       };
 
@@ -91,7 +91,7 @@ export const userReducer = (userState, action) => {
         return {
           ...userState,
           wishList: userState.wishList.filter((item) => {
-            return item.id !== action.payload.id;
+            return item._id !== action.payload._id;
           }),
         };
 

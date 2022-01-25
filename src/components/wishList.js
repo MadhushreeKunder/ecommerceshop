@@ -16,7 +16,7 @@ export function WishList() {
       )}
       <div className="cards-section flex-start">
         {userState?.wishList.map((product) => (
-          <div className="card">
+          <div className="card" key={product._id}>
             <img className="card-img" src={product.img} alt="" />
             <div className="card-info">
               <p className="card-title">{product.name}</p>

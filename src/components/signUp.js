@@ -37,7 +37,7 @@ export const SignUp = () => {
             signUpCredentials.email
           );
           if (result.success) {
-            userDispatch({ type: "ADD_USER", payload: result.user.id });
+            userDispatch({ type: "ADD_USER", payload: result.user._id });
             navigate(state?.from ? state.from : "/");
           }
         } else {

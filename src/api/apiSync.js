@@ -5,7 +5,7 @@ export const addToCartApi = async (product, dispatch) => {
   try {
     dispatch({ type: "STATUS", payload: "Item Adding to Cart...." });
     const response = await axios.post(`${backendURL}/user-details/cart`, {
-      id: product.id,
+      id: product._id,
     });
     if (response.status === 201) {
       dispatch({ type: "ADD_TO_CART", payload: product });
@@ -22,7 +22,7 @@ export const removeFromCartApi = async (product, dispatch) => {
       payload: "Removing Item from Cart....",
     });
     const response = await axios.delete(
-      `${backendURL}/user-details/cart/${product.id}`
+      `${backendURL}/user-details/cart/${product._id}`
     );
     if (response.status === 200) {
       dispatch({ type: "REMOVE_FROM_CART", payload: product });
@@ -42,7 +42,7 @@ export const incrementQuantityCartApi = async (product, dispatch) => {
       payload: "Increasing Quantity..",
     });
     const response = await axios.post(
-      `${backendURL}/user-details/cart/${product.id}`,
+      `${backendURL}/user-details/cart/${product._id}`,
       {
         ...product,
         quantity: product.quantity + 1,
@@ -66,7 +66,7 @@ export const decrementQuantityCartApi = async (product, dispatch) => {
       payload: "Decreasing Quantity..",
     });
     const response = await axios.post(
-      `${backendURL}/user-details/cart/${product.id}`,
+      `${backendURL}/user-details/cart/${product._id}`,
       {
         ...product,
         quantity: product.quantity - 1,
@@ -87,7 +87,7 @@ export const addToWishListApi = async (product, dispatch) => {
   try {
     dispatch({ type: "STATUS", payload: "Item Adding to Wishlist...." });
     const response = await axios.post(`${backendURL}/user-details/wishlist`, {
-      id: product.id,
+      id: product._id,
     });
     if (response.status === 201) {
       dispatch({ type: "ADD_TO_WISHLIST", payload: product });
@@ -101,7 +101,7 @@ export const deleteFromWishListApi = async (product, dispatch) => {
   try {
     dispatch({ type: "STATUS", payload: "Removing Item from Wishlist...." });
     const response = await axios.delete(
-      `${backendURL}/user-details/wishlist/${product.id}`
+      `${backendURL}/user-details/wishlist/${product._id}`
     );
     if (response.status === 200) {
       dispatch({ type: "REMOVE_FROM_WISHLIST", payload: product });

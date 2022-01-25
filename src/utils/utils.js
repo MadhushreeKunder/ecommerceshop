@@ -3,13 +3,13 @@ export const backendURL = "https://coral-store-api-backend.madhushreekunde.repl.
 // "https://product-id-handler-middleware-timestamps-1.madhushreekunde.repl.co";
 
 export const found = (array, id) => {
-    return !!array.find((item) => item.id === id);
+    return !!array.find((item) => item._id === id);
   };
   
   export const isProdInCart = (item, userState, token) => {
     return token
       ? userState?.cart.reduce((acc, value) => {
-          if (item.id === value.id) {
+          if (item._id === value._id) {
             return "Go to Cart";
           } else {
             return acc;
@@ -21,7 +21,7 @@ export const found = (array, id) => {
   export const isProdInWishList = (item, userState, token) => {
     return token
       ? userState?.wishList.reduce((icon, product) => {
-          return product.id === item.id ? (icon = "fas fa-lg fa-heart") : icon;
+          return product._id === item._id ? (icon = "fas fa-lg fa-heart") : icon;
         }, "far fa-lg fa-heart")
       : "far fa-lg fa-heart";
   };

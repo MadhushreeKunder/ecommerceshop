@@ -30,8 +30,8 @@ export function ProductListing() {
 
         <div className="cards-section">
           {filteredData.map((product) => (
-            <div className="card" key={product.id}>
-              {/* <Link to={`/products/${product.id}`}> */}
+            <div className="card" key={product._id}>
+              {/* <Link to={`/products/${product._id}`}> */}
 
               <div className="card-img-rating">
                 <img
@@ -42,12 +42,12 @@ export function ProductListing() {
                   alt={product.name}
                 />{" "}
                 {!product.inStock && (
-                  <small class="card-overlay" style={{ padding: 0 }}>
+                  <small className="card-overlay" style={{ padding: 0 }}>
                     Out of Stock
                   </small>
                 )}
                 <div className="bottom-left">
-                  {product.star} <span class="fa fa-star checked"> </span> |{" "}
+                  {product.star} <span className="fa fa-star checked"> </span> |{" "}
                   {product.rating}k
                 </div>
               </div>
@@ -55,7 +55,7 @@ export function ProductListing() {
               {/* 
               {token ? (
                 <button
-                  class="button card-badge-small"
+                  className="button card-badge-small"
                   onClick={
                     state?.itemsInWishList.find(
                       (item) => item.id === product.id
@@ -68,24 +68,24 @@ export function ProductListing() {
                         }
                   }
                 >
-                  <i class=" fa fa-heart" style={{ color: "red" }}></i>
+                  <i className=" fa fa-heart" style={{ color: "red" }}></i>
                 </button>
               ) : (
                 <button
-                  class="button card-badge-small"
+                  className="button card-badge-small"
                   onClick={navigate("login")}
                 >
-                  <i class=" fa fa-heart"></i>
+                  <i className=" fa fa-heart"></i>
                 </button>
               )} */}
 
               <button
-                class="button card-badge-small"
+                className="button card-badge-small"
                 onClick={
                   token
                     ? () => {
                         userState.wishList.find(
-                          (item) => item.id === product.id
+                          (item) => item._id === product._id
                         )
                           ? deleteFromWishListApi(product, userDispatch)
                           : addToWishListApi(product, userDispatch);
@@ -106,7 +106,7 @@ export function ProductListing() {
                   <p className="card-brand">{product.brand}</p>
                   <p className="card-name">{product.name}</p>
                   {/* <p>
-                    {product.star} <span class="fa fa-star checked"> </span> |{" "}
+                    {product.star} <span className="fa fa-star checked"> </span> |{" "}
                     {product.rating}k Ratings
                   </p> */}
                   <p className="card-price">Rs.{product.price} </p>

@@ -6,7 +6,6 @@ import { backendURL } from "../utils/utils";
 
 export const AuthContext = createContext();
 
-
 function setupAuthHeaderForServiceCalls(token) {
   if (token) {
     return (axios.defaults.headers.common["Authorization"] = token);
@@ -33,11 +32,10 @@ export const addUser = ({ data, setUser, setToken }) => {
   setToken(data.token);
   localStorage?.setItem("token", JSON.stringify({ token: data.token }));
 
-  const { id, username, email } = data.user;
-  localStorage?.setItem("user", JSON.stringify({ id, username, email }));
+  const { _id, username, email } = data.user;
+  localStorage?.setItem("user", JSON.stringify({ _id, username, email }));
   setupAuthHeaderForServiceCalls(data.token);
 };
-
 
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
@@ -62,9 +60,9 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const userLoggedIn = JSON.parse(localStorage?.getItem("user"));
-    userLoggedIn?.id && setUser({ ...userLoggedIn });
+    userLoggedIn?._id && setUser({ ...userLoggedIn });
     setupAuthExceptionHandler(logout, navigate);
-  });
+  }, []);
 
   async function loginUserWithCreds(username, password) {
     try {
@@ -106,8 +104,9 @@ export const AuthProvider = ({ children }) => {
       return data;
     } catch (error) {
       console.error("Error from signup!", error);
-      setStatus({ error: error.response
-        // .data.errorMessage 
+      setStatus({
+        error: error.response,
+        // .data.errorMessage
       });
       return error;
     }
