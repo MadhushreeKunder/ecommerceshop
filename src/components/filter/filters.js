@@ -1,5 +1,4 @@
 import { useProduct } from "../../contexts/productContext";
-import { useReducer } from "react";
 
 export function Filters() {
   const {
