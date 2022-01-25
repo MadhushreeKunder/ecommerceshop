@@ -5,14 +5,14 @@ import { useUser } from "../contexts";
 
 export function NavBar() {
   const { token } = useAuth();
-  const { state } = useUser();
+  const { userState } = useUser();
   const [isNavVisible, setNavVisible] = useState("false");
 
   const toggleNav = () => {
     setNavVisible(!isNavVisible);
   };
   const totalItems = () => {
-    return state?.itemsInCart.reduce((acc, value) => {
+    return userState?.cart.reduce((acc, value) => {
       return acc + value.quantity;
     }, 0);
   };
@@ -56,12 +56,12 @@ export function NavBar() {
               <li className="nav-item">
                 <NavLink
                   className="nav-link button"
-                  // data-badge={token && state?.itemsInWishList.length}
+                  data-badge={token && userState?.wishList?.length}
                   // {itemsInWishList.length}
                   to="/wishlist"
                 >
                   {" "}
-                  {token && state?.itemsInWishList?.length}
+                  {token && userState?.wishList?.length}
                   WishList
                 </NavLink>
               </li>
@@ -70,7 +70,7 @@ export function NavBar() {
               <li className="nav-item">
                 <NavLink
                   className="nav-link button "
-                  to={token? "/logout": "/login"}
+                  to={token ? "/logout" : "/login"}
                   style={{ display: "flex", alignItems: "center" }}
                 >
                   <i
@@ -81,12 +81,12 @@ export function NavBar() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink
+                {/* <NavLink
                   className="nav-link button button-secondary nav-link--button"
                   to="/signup"
                 >
                   Sign Up{" "}
-                </NavLink>
+                </NavLink> */}
               </li>
             </ul>
           </nav>

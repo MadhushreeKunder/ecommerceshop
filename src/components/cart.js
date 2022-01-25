@@ -7,10 +7,10 @@ import {
 
 export function Cart() {
 
-  const { state, dispatch: cartDispatch } = useUser();
+  const { userState, userDispatch } = useUser();
 
   const getTotalCost = () => {
-    return state?.itemsInCart.reduce(
+    return userState?.cart.reduce(
       (acc, item) => acc + item.quantity * item.price,
       0
     );
@@ -21,35 +21,35 @@ export function Cart() {
       <h1>Cart</h1>
 
       <div className="cart-page">
-        {state?.itemsInCart.length === 0 ? (
+        {userState?.cart.length === 0 ? (
           <h1>Your cart feels light, add some Products!</h1>
         ) : (
           <div>
             <div className="cards-section cart-list">
               <h3>Items in Cart</h3>
-              {state?.itemsInCart.map((item) => (
+              {userState?.cart.map((product) => (
                 <div className="card">
-                  <img className="card-img" src={item.img} alt="" />
+                  <img className="card-img" src={product.img} alt={product.name} />
 
                   <div className="card-info">
-                    <p className="card-title">{item.name}</p>
-                    <small className="card-price">Rs.{item.price}</small>
+                    <p className="card-title">{product.name}</p>
+                    <small className="card-price">Rs.{product.price}</small>
 
                     <div className="cart-update-quantity">
                       <button
                         className="button button-incdec"
                         onClick={() =>
-                          decrementQuantityCartApi(item, cartDispatch)
+                          decrementQuantityCartApi(product, userDispatch)
                         }
                       >
                         -
                       </button>
-                      <small className="cart-quantity">{item.quantity}</small>
+                      <small className="cart-quantity">{product.quantity}</small>
 
                       <button
                         className="button button-incdec"
                         onClick={() =>
-                          incrementQuantityCartApi(item, cartDispatch)
+                          incrementQuantityCartApi(product, userDispatch)
                         }
                       >
                         +
@@ -70,7 +70,7 @@ export function Cart() {
                 >
                   {" "}
                    Rs.{" "}
-                  {state?.itemsInCart.length ? getTotalCost() : 0}{" "}
+                  {userState?.cart.length ? getTotalCost() : 0}{" "}
                 </span>
               </h3>{" "}
               <button className="button">Proceed to checkout</button>

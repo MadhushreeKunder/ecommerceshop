@@ -1,10 +1,10 @@
-export const userReducer = (state, action) => {
+export const userReducer = (userState, action) => {
   switch (action.type) {
     case "ADD_USER":
       return {
         id: action.payload,
-        itemsInWishlist: [],
-        itemsInCart: [],
+        wishList: [],
+        cart: [],
         loading: "",
       };
 
@@ -12,42 +12,42 @@ export const userReducer = (state, action) => {
       return {
         ...action.payload,
         loading: "",
-        itemsInCart: action.payload.itemsInCart.map((item) => item.productId),
-        itemsInWishList: action.payload.itemsInWishList.map(
+        cart: action.payload.cart.map((item) => item.productId),
+        wishList: action.payload.wishList.map(
           (item) => item.productId
         ),
       };
 
     case "STATUS":
       return {
-        ...state,
+        ...userState,
         loading: action.payload,
       };
 
     case "ADD_ADDRESS":
       return {
-        ...state,
-        addresses: state.addresses.concat(action.payload),
+        ...userState,
+        addresses: userState.addresses.concat(action.payload),
       };
 
     case "DELETE_ADDRESS":
       return {
-        ...state,
+        ...userState,
         addresses: action.payload,
       };
 
       case "EDIT_ADDRESS":
       return {
-        ...state,
-        addresses: state.addresses.map((item) => {
+        ...userState,
+        addresses: userState.addresses.map((item) => {
           return item.id === action.payload.id ? action.payload.address : item;
         }),
       };
 
     case "INCREMENT":
       return {
-        ...state,
-        itemsInCart: state.itemsInCart.map((item) => {
+        ...userState,
+        cart: userState.cart.map((item) => {
           return item.id === action.payload.id
             ? { ...item, quantity: item.quantity + 1 }
             : item;
@@ -55,9 +55,9 @@ export const userReducer = (state, action) => {
       };
 
     case "DECREMENT":
-      return (state = {
-        ...state,
-        itemsInCart: state.itemsInCart.map((item) =>
+      return (userState = {
+        ...userState,
+        cart: userState.cart.map((item) =>
           item.id === action.payload.id
             ? { ...item, quantity: item.quantity - 1 }
             : item
@@ -66,8 +66,8 @@ export const userReducer = (state, action) => {
 
     case "ADD_TO_CART":
       return {
-        ...state,
-        itemsInCart: state.itemsInCart.concat({
+        ...userState,
+        cart: userState.cart.concat({
           ...action.payload,
           quantity: 1,
         }),
@@ -75,27 +75,27 @@ export const userReducer = (state, action) => {
 
     case "REMOVE_FROM_CART":
       return {
-        ...state,
-        itemsInCart: state.itemsInCart.filter((item) => {
+        ...userState,
+        cart: userState.cart.filter((item) => {
           return item.id !== action.payload.id;
         }),
       };
 
       case "ADD_TO_WISHLIST":
         return {
-          ...state,
-          itemsInWishList: state.itemsInWishList.concat(action.payload),
+          ...userState,
+          wishList: userState.wishList.concat(action.payload),
         };
   
       case "REMOVE_FROM_WISHLIST":
         return {
-          ...state,
-          wishList: state.wishList.filter((item) => {
+          ...userState,
+          wishList: userState.wishList.filter((item) => {
             return item.id !== action.payload.id;
           }),
         };
 
     default:
-      return state;
+      return userState;
   }
 };

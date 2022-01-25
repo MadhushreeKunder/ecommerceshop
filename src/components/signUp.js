@@ -6,7 +6,7 @@ import { useAuth } from "../auth/authContext";
 
 export const SignUp = () => {
   const { status, signUpUserWithCreds } = useAuth();
-  const { dispatch } = useUser();
+  const { userDispatch } = useUser();
   const { state } = useLocation();
   const navigate = useNavigate();
   const [signUpCredentials, setSignUpCredentials] = useState({
@@ -37,7 +37,7 @@ export const SignUp = () => {
             signUpCredentials.email
           );
           if (result.success) {
-            dispatch({ type: "ADD_USER", payload: result.user.id });
+            userDispatch({ type: "ADD_USER", payload: result.user.id });
             navigate(state?.from ? state.from : "/");
           }
         } else {
