@@ -11,7 +11,7 @@ import {
 } from "./components";
 
 import { Routes, Route } from "react-router-dom";
-import { PrivateRoute } from "./components/privateRoute";
+import  PrivateRoute  from "./components/privateRoute";
 
 export default function App() {
   return (
@@ -23,7 +23,9 @@ export default function App() {
           <Route path="/" element={<Home />} ></Route>
           <Route path="/products" element={<ProductListing />} ></Route>
           {/* <Route path="/products/:productId" element={<ProductDetail />} /> */}
-          <Route
+          <PrivateRoute path="/cart" element={<Cart/>}/>
+          <PrivateRoute path="/wishlist" element={<WishList/>}/>
+          {/* <Route
             path="/cart"
             element={
               <PrivateRoute>
@@ -38,7 +40,7 @@ export default function App() {
                 <WishList />
               </PrivateRoute>
             }
-          ></Route>
+          ></Route> */}
           <Route path="/login" element={<Login />} ></Route>
           <Route path="/signup" element={<SignUp />} ></Route>
         </Routes>
