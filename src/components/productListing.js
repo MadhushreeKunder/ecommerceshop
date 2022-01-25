@@ -16,7 +16,7 @@ import { useAuth } from "../auth/authContext";
 import { useUser } from "../contexts/userContext";
 
 export function ProductListing() {
-  const { state, dispatch: cartDispatch } = useUser();
+  const { userState, userDispatch } = useUser();
 
   const { status, filteredData } = useProduct();
   const { token } = useAuth();
@@ -52,7 +52,7 @@ export function ProductListing() {
                 </div>
               </div>
               {/* </Link> */}
-
+              {/* 
               {token ? (
                 <button
                   class="button card-badge-small"
@@ -77,7 +77,28 @@ export function ProductListing() {
                 >
                   <i class=" fa fa-heart"></i>
                 </button>
-              )}
+              )} */}
+
+              <button
+                class="button card-badge-small"
+                onClick={
+                  token
+                    ? () => {
+                        userState.wishList.find(
+                          (item) => item.id === product.id
+                        )
+                          ? deleteFromWishListApi(product, userDispatch)
+                          : addToWishListApi(product, userDispatch);
+                      }
+                    : () => {
+                        navigate("login");
+                      }
+                }
+              >
+                <i
+                  className={`${isProdInWishList(product, userState, token)}`}
+                ></i>
+              </button>
 
               <div className="card-info">
                 {/* <Link to={`/products/${item.id}`}> */}
@@ -101,10 +122,10 @@ export function ProductListing() {
                 {/* </Link> */}
                 <div>
                   {product.inStock ? (
-                    state && found(state.itemsInCart, product.id) ? (
+                    userState && found(userState.cart, product.id) ? (
                       <Link to="/cart">
                         <button>
-                          <p>{isProdInCart(product, state, token)}</p>
+                          <p>{isProdInCart(product, userState, token)}</p>
                         </button>
                       </Link>
                     ) : (
@@ -112,16 +133,16 @@ export function ProductListing() {
                         className={"button button-primary card-button"}
                         onClick={
                           token
-                            ? () => addToCartApi(product, cartDispatch)
+                            ? () => addToCartApi(product, userDispatch)
                             : navigate("login")
                         }
                       >
-                        {isProdInCart(product, state, token)}
+                        {isProdInCart(product, userState, token)}
                       </button>
                     )
                   ) : (
                     <button className={"button card-button button-disable"}>
-                      {isProdInCart(product, state, token)}
+                      {isProdInCart(product, userState, token)}
                     </button>
                   )}
                 </div>
