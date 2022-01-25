@@ -180,14 +180,13 @@
   background-color: white;
 }
 
-.nav-list{
-  display: flex;
+.nav-list {
   align-items: center;
 }
 
-.nav-list--primary {
+/* .nav-list--primary {
   margin-bottom: 0;
-}
+} */
 
 .nav-link {
   color: var(--primary-coral);
@@ -399,6 +398,31 @@ img {
 .login-signup {
   color: var(--dark-coral);
 }
+
+.form-textarea {
+  resize: none;
+  width: 100%;
+  padding: 1rem;
+}
+
+/* -----------------address- */
+
+.input-dropdown {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.input-select {
+  padding: 0.5rem;
+}
+
+.login-input-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* -----------responsive */
 
 @media screen and (max-width: 900px) {
   .nav-top {

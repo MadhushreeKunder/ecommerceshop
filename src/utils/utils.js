@@ -6,9 +6,9 @@ export const found = (array, id) => {
     return !!array.find((item) => item.id === id);
   };
   
-  export const isProdInCart = (item, state, token) => {
+  export const isProdInCart = (item, userState, token) => {
     return token
-      ? state?.itemsInCart.reduce((acc, value) => {
+      ? userState?.cart.reduce((acc, value) => {
           if (item.id === value.id) {
             return "Go to Cart";
           } else {
@@ -18,9 +18,9 @@ export const found = (array, id) => {
       : "Add to Cart";
   };
   
-  export const isProdInWishList = (item, state, token) => {
+  export const isProdInWishList = (item, userState, token) => {
     return token
-      ? state?.itemsInWishList.reduce((icon, product) => {
+      ? userState?.wishList.reduce((icon, product) => {
           return product.id === item.id ? (icon = "fas fa-lg fa-heart") : icon;
         }, "far fa-lg fa-heart")
       : "far fa-lg fa-heart";
