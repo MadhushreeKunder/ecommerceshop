@@ -13,6 +13,6 @@ export const getFilteredData = (
   { showInventoryAll, showFastDeliveryOnly }
 ) => {
   return productList
-    .filter(({ inStock }) => (showInventoryAll ? inStock : true))
+    .filter(({ inStock }) => (showInventoryAll ? true : inStock))
     .filter(({ fastDelivery }) => (showFastDeliveryOnly ? fastDelivery : true));
 };
