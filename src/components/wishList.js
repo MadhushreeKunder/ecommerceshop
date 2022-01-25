@@ -11,19 +11,19 @@ export function WishList() {
   return (
     <div className="container">
       <h1>WishList</h1>
-      {userState.wishList.length === 0 && (
+      {userState?.wishList.length === 0 && (
         <h2>Empty Wishlist, make some wishes</h2>
       )}
       <div className="cards-section flex-start">
-        {userState?.wishList.map((item) => (
+        {userState?.wishList.map((product) => (
           <div className="card">
-            <img className="card-img" src={item.img} alt="" />
+            <img className="card-img" src={product.img} alt="" />
             <div className="card-info">
-              <p className="card-title">{item.name}</p>
-              <small className="card-price">Rs.{item.price}</small>
+              <p className="card-title">{product.name}</p>
+              <small className="card-price">Rs.{product.price}</small>
               <button
                 className="button button-secondary card-button"
-                onClick={() => deleteFromWishListApi(item, userDispatch)}
+                onClick={() => deleteFromWishListApi(product, userDispatch)}
               >
                 Remove
               </button>
