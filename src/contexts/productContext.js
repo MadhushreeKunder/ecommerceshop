@@ -32,7 +32,7 @@ export function ProductProvider({ children }) {
   }, []);
 
   const [
-    { data, status, sortBy, showInventoryAll, showFastDeliveryOnly, rating },
+    { data, status, sortBy, showInventoryAll, showFastDeliveryOnly, ratings, productDetail },
     dispatch,
   ] = useReducer(filterReducer, {
     data: [],
@@ -41,6 +41,7 @@ export function ProductProvider({ children }) {
     sortBy: null,
     showInventoryAll: true,
     showFastDeliveryOnly: false,
+    productDetail:{}
   });
 
   const sortedData = getSortedData(data, sortBy);
@@ -54,9 +55,10 @@ export function ProductProvider({ children }) {
       value={{
         sortBy,
         filteredData,
-        rating,
+        ratings,
         status,
         dispatch,
+        productDetail
       }}
     >
       {children}
