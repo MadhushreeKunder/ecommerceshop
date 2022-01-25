@@ -91,7 +91,7 @@ export function ProductListing() {
                           : addToWishListApi(product, userDispatch);
                       }
                     : () => {
-                        navigate("login");
+                        navigate("/login");
                       }
                 }
               >
@@ -134,7 +134,7 @@ export function ProductListing() {
                         onClick={
                           token
                             ? () => addToCartApi(product, userDispatch)
-                            : navigate("login")
+                            : () => navigate("/login")
                         }
                       >
                         {isProdInCart(product, userState, token)}
