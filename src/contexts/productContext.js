@@ -39,7 +39,7 @@ export function ProductProvider({ children }) {
     status: { loading: "", success: "", error: "" },
     ratings: 5,
     sortBy: null,
-    showInventoryAll: true,
+    showInventoryAll: false,
     showFastDeliveryOnly: false,
     productDetail:{}
   });

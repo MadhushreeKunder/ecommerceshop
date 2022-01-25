@@ -55,14 +55,14 @@ export const userReducer = (userState, action) => {
       };
 
     case "DECREMENT":
-      return (userState = {
+      return {
         ...userState,
         cart: userState.cart.map((item) =>
           item.id === action.payload.id
             ? { ...item, quantity: item.quantity - 1 }
             : item
         ),
-      });
+      };
 
     case "ADD_TO_CART":
       return {
