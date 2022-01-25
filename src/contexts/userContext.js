@@ -23,7 +23,7 @@ export function UserProvider({ children }) {
       })();
     }
   }, [
-    token,
+    token
     // navigate
   ]);
 
