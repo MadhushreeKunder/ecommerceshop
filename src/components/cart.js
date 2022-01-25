@@ -4,9 +4,9 @@ import {
   incrementQuantityCartApi,
   decrementQuantityCartApi,
 } from "../api/apiSync";
+import { Link } from "react-router-dom";
 
 export function Cart() {
-
   const { userState, userDispatch } = useUser();
 
   const getTotalCost = () => {
@@ -28,8 +28,12 @@ export function Cart() {
             <div className="cards-section cart-list">
               <h3>Items in Cart</h3>
               {userState?.cart.map((product) => (
-                <div className="card">
-                  <img className="card-img" src={product.img} alt={product.name} />
+                <div className="card" key={product._id}>
+                  <img
+                    className="card-img"
+                    src={product.img}
+                    alt={product.name}
+                  />
 
                   <div className="card-info">
                     <p className="card-title">{product.name}</p>
@@ -44,7 +48,9 @@ export function Cart() {
                       >
                         -
                       </button>
-                      <small className="cart-quantity">{product.quantity}</small>
+                      <small className="cart-quantity">
+                        {product.quantity}
+                      </small>
 
                       <button
                         className="button button-incdec"
@@ -69,11 +75,12 @@ export function Cart() {
                   }}
                 >
                   {" "}
-                   Rs.{" "}
-                  {userState?.cart.length ? getTotalCost() : 0}{" "}
+                  Rs. {userState?.cart.length ? getTotalCost() : 0}{" "}
                 </span>
               </h3>{" "}
-              <button className="button">Proceed to checkout</button>
+              <Link to="/address">
+                <button className="button">Proceed to checkout</button>
+              </Link>
             </div>
           </div>
         )}
