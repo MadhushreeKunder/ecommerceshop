@@ -8,4 +8,4 @@ export { getFilteredData, getSortedData } from "./dataFilter";
 export { Login } from "./login";
 export { SignUp} from "./signUp";
 export { NavBar } from "./navbar";
-export {LogoutUser} from "./logoutUser";
+export {LogoutUser} from "./logoutUser"

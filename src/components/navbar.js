@@ -65,13 +65,11 @@ export function NavBar() {
                   WishList
                 </NavLink>
               </li>
-            </ul>
-            <ul className="nav-list nav-list--secondary">
               <li className="nav-item">
                 <NavLink
                   className="nav-link button "
                   to={token ? "/logout" : "/login"}
-                  style={{ display: "flex", alignItems: "center" }}
+                  // style={{ display: "flex", alignItems: "center" }}
                 >
                   <i
                     class="fas fa-user-circle"
@@ -80,6 +78,9 @@ export function NavBar() {
                   {""} Account
                 </NavLink>
               </li>
+            </ul>
+            <ul className="nav-list nav-list--secondary">
+              
               <li className="nav-item">
                 {/* <NavLink
                   className="nav-link button button-secondary nav-link--button"
@@ -87,6 +88,10 @@ export function NavBar() {
                 >
                   Sign Up{" "}
                 </NavLink> */}
+                <NavLink to="/address">Address</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/checkout">Checkout</NavLink>
               </li>
             </ul>
           </nav>

@@ -7,11 +7,13 @@ import {
   ProductDetail,
   Login,
   SignUp,
-  NavBar, LogoutUser
+  NavBar,
+  LogoutUser,
 } from "./components";
+import { Address, Checkout } from "./checkout";
 
 import { Routes, Route } from "react-router-dom";
-import  PrivateRoute  from "./components/privateRoute";
+import PrivateRoute from "./components/privateRoute";
 
 export default function App() {
   return (
@@ -20,12 +22,13 @@ export default function App() {
 
       <div className="app-body">
         <Routes>
-          <Route path="/" element={<Home />} ></Route>
-          <Route path="/products" element={<ProductListing />} ></Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/products" element={<ProductListing />}></Route>
           {/* <Route path="/products/:productId" element={<ProductDetail />} /> */}
-          <PrivateRoute path="/cart" element={<Cart/>}/>
-          <PrivateRoute path="/wishlist" element={<WishList/>}/>
-          <PrivateRoute path="/logout" element={<LogoutUser/>}/>
+          <PrivateRoute path="/cart" element={<Cart />} />
+          <PrivateRoute path="/wishlist" element={<WishList />} />
+          <PrivateRoute path="/logout" element={<LogoutUser />} />
+
           {/* <Route
             path="/cart"
             element={
@@ -42,8 +45,11 @@ export default function App() {
               </PrivateRoute>
             }
           ></Route> */}
-          <Route path="/login" element={<Login />} ></Route>
-          <Route path="/signup" element={<SignUp />} ></Route>
+          <Route path="/checkout" element={<Checkout />} />
+
+          <Route path="/address" element={<Address />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/signup" element={<SignUp />}></Route>
         </Routes>
       </div>
     </div>
