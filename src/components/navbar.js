@@ -47,7 +47,7 @@ export function NavBar() {
                 <NavLink
                   className="nav-link button"
                   data-badge={token && totalItems()}
-                //   {itemsInCart.length}
+                  //   {itemsInCart.length}
                   to="/cart"
                 >
                   Cart
@@ -56,18 +56,28 @@ export function NavBar() {
               <li className="nav-item">
                 <NavLink
                   className="nav-link button"
-                  data-badge={token && state?.itemsInWishList.length}
+                  // data-badge={token && state?.itemsInWishList.length}
                   // {itemsInWishList.length}
                   to="/wishlist"
-                > 
+                >
+                  {" "}
+                  {token && state?.itemsInWishList?.length}
                   WishList
                 </NavLink>
               </li>
             </ul>
             <ul className="nav-list nav-list--secondary">
               <li className="nav-item">
-                <NavLink className="nav-link button " to="/login">
-                  Log In{" "}
+                <NavLink
+                  className="nav-link button "
+                  to={token? "/logout": "/login"}
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <i
+                    class="fas fa-user-circle"
+                    style={{ fontSize: "1.5rem", marginRight: "5px" }}
+                  ></i>{" "}
+                  {""} Account
                 </NavLink>
               </li>
               <li className="nav-item">
