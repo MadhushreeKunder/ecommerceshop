@@ -180,6 +180,15 @@
   background-color: white;
 }
 
+.nav-list{
+  display: flex;
+  align-items: center;
+}
+
+.nav-list--primary {
+  margin-bottom: 0;
+}
+
 .nav-link {
   color: var(--primary-coral);
   position: relative;
@@ -353,7 +362,7 @@ img {
   width: 30rem;
 }
 
-.signup-form{
+.signup-form {
   display: flex;
   flex-direction: column;
   margin: 1rem auto;

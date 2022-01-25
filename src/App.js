@@ -7,7 +7,7 @@ import {
   ProductDetail,
   Login,
   SignUp,
-  NavBar,
+  NavBar, LogoutUser
 } from "./components";
 
 import { Routes, Route } from "react-router-dom";
@@ -25,6 +25,7 @@ export default function App() {
           {/* <Route path="/products/:productId" element={<ProductDetail />} /> */}
           <PrivateRoute path="/cart" element={<Cart/>}/>
           <PrivateRoute path="/wishlist" element={<WishList/>}/>
+          <PrivateRoute path="/logout" element={<LogoutUser/>}/>
           {/* <Route
             path="/cart"
             element={
