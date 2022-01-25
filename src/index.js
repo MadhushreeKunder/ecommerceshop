@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import { ProductProvider } from "./contexts";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import App from "./App";
 import { AuthProvider } from "./auth/authContext";
@@ -10,15 +10,15 @@ import { UserProvider } from "./contexts/userContext";
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <StrictMode>
-    <BrowserRouter>
+    <Router>
       <AuthProvider>
-        <UserProvider>
-          <ProductProvider>
+        <ProductProvider>
+          <UserProvider>
             <App />
-          </ProductProvider>
-        </UserProvider>
+          </UserProvider>
+        </ProductProvider>
       </AuthProvider>
-    </BrowserRouter>
+    </Router>
   </StrictMode>,
   rootElement
 );
