@@ -6,33 +6,6 @@ import { backendURL } from "../utils/utils";
 
 export const AuthContext = createContext();
 
-// function loginService(username, password) {
-//   return axios.post(
-//     `${backendURL}/auth/login`,
-//     {
-//       user: { username: username, password: password },
-//     }
-//   );
-// }
-
-// function signupService(username, password, email) {
-//   return axios.post(
-//     `${backendURL}/auth/signup`,
-//     {
-//       user: { username: username, password: password, email: email },
-//     }
-//   );
-// }
-
-export const addUser = ({ data, setUser, setToken }) => {
-  setUser(data.user);
-  setToken(data.token);
-  localStorage?.setItem("token", JSON.stringify({ token: data.token }));
-
-  const { id, username, email } = data.user;
-  localStorage?.setItem("user", JSON.stringify({ id, username, email }));
-  setupAuthHeaderForServiceCalls(data.token);
-};
 
 function setupAuthHeaderForServiceCalls(token) {
   if (token) {
@@ -54,6 +27,17 @@ function setupAuthExceptionHandler(logoutUser, navigate) {
     }
   );
 }
+
+export const addUser = ({ data, setUser, setToken }) => {
+  setUser(data.user);
+  setToken(data.token);
+  localStorage?.setItem("token", JSON.stringify({ token: data.token }));
+
+  const { id, username, email } = data.user;
+  localStorage?.setItem("user", JSON.stringify({ id, username, email }));
+  setupAuthHeaderForServiceCalls(data.token);
+};
+
 
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
@@ -107,7 +91,7 @@ export const AuthProvider = ({ children }) => {
   async function signUpUserWithCreds(username, password, email) {
     try {
       setStatus({ loading: "Adding user info.." });
-      const { data } = await await axios.post(`${backendURL}/auth/signup`, {
+      const { data } = await axios.post(`${backendURL}/auth/signup`, {
         username: username,
         password: password,
         email: email,
@@ -122,7 +106,9 @@ export const AuthProvider = ({ children }) => {
       return data;
     } catch (error) {
       console.error("Error from signup!", error);
-      setStatus({ error: error.response.data.errorMessage });
+      setStatus({ error: error.response
+        // .data.errorMessage 
+      });
       return error;
     }
   }
