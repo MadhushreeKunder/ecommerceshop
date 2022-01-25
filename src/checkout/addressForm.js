@@ -12,7 +12,6 @@ export const defaultFormState = {
   address: "",
   state: "Maharashtra",
   country: "India",
-  addressType: "Home",
 };
 
 export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
@@ -31,7 +30,6 @@ export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
     address: editAddress.address,
     state: editAddress.state,
     country: editAddress.country,
-    addressType: editAddress.addressType,
   };
 
   const [formState, formDispatch] = useReducer(formReducer, initialFormState);
@@ -72,7 +70,7 @@ export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
               placeholder="Enter name"
               className="form-input"
               required
-              value={formState.name}
+              defaultValue={formState.name}
               onChange={(e) =>
                 formDispatch({ type: "SET_NAME", payload: e.target.value })
               }
@@ -86,7 +84,8 @@ export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
               placeholder="Enter phone number"
               className="form-input"
               required
-              value={formState.phoneNumber}
+              defaultValue={formState.phoneNumber}
+              // value={formState.phoneNumber}
               onChange={(e) =>
                 formDispatch({ type: "SET_PHONENO", payload: e.target.value })
               }
@@ -103,7 +102,7 @@ export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
               placeholder="Enter ZipCode"
               className="form-input"
               required
-              value={formState.zipCode}
+              defaultValue={formState.zipCode}
               onChange={(e) =>
                 formDispatch({ type: "SET_ZIPCODE", payload: e.target.value })
               }
@@ -118,7 +117,7 @@ export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
               placeholder="Enter City"
               className="form-input"
               required
-              value={formState.city}
+              defaultValue={formState.city}
               onChange={(e) =>
                 formDispatch({ type: "SET_CITY", payload: e.target.value })
               }
@@ -136,7 +135,7 @@ export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
               cols="20"
               rows="10"
               required
-              value={formState.address}
+              defaultValue={formState.address}
               onChange={(e) =>
                 formDispatch({ type: "SET_ADDRESS", payload: e.target.value })
               }
@@ -148,13 +147,13 @@ export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
               <label>State</label>
               <select
                 className="input-select"
-                value={formState.state}
+                defaultValue={formState.state}
                 onChange={(e) =>
                   formDispatch({ type: "SET_STATE", payload: e.target.value })
                 }
               >
                 {states.map((state) => {
-                  return <option value={state}>{state}</option>;
+                  return <option defaultValue={state}>{state}</option>;
                 })}
               </select>
             </div>
@@ -163,13 +162,13 @@ export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
               <label>Country</label>
               <select
                 className="input-select"
-                value={formState.country}
+                defaultValue={formState.country}
                 onChange={(e) =>
                   formDispatch({ type: "SET_COUNTRY", payload: e.target.value })
                 }
               >
                 {countries.map((country) => {
-                  return <option value={country}>{country}</option>;
+                  return <option defaultValue={country}>{country}</option>;
                 })}
               </select>
             </div>
