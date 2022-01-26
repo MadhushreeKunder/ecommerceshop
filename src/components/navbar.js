@@ -43,7 +43,7 @@ export function NavBar() {
                 <NavLink
                   className="nav-link button"
                   data-badge={token && totalItems(userState)}
-                  to="/cart"
+                  to={token? "/cart" : "/login"}
                 >
                   Cart
                 </NavLink>
@@ -53,7 +53,7 @@ export function NavBar() {
                   className="nav-link button"
                   data-badge={token && userState?.wishList?.length}
                   // {itemsInWishList.length}
-                  to="/wishlist"
+                  to={token? "/cart" : "/wishlist"}
                 >
                   {" "}
                   WishList
