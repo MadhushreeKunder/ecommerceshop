@@ -12,9 +12,10 @@ export const userReducer = (userState, action) => {
       return {
         ...action.payload,
         loading: "",
-        cart: action.payload.cart.map((item) => item.productId),
+        cart: action.payload.cart.map((item) =>
+        {return item.productId}),
         wishList: action.payload.wishList.map(
-          (item) => item.productId
+          (item) => {return item.productId}
         ),
       };
 
@@ -40,7 +41,7 @@ export const userReducer = (userState, action) => {
       return {
         ...userState,
         addresses: userState.addresses.map((item) => {
-          return item._id === action.payload._id ? action.payload.address : item;
+          return item._id === action.payload.id ? action.payload.address : item;
         }),
       };
 
@@ -57,11 +58,11 @@ export const userReducer = (userState, action) => {
     case "DECREMENT":
       return {
         ...userState,
-        cart: userState.cart.map((item) =>
-          item._id === action.payload._id
+        cart: userState.cart.map((item) =>{
+        return  item._id === action.payload._id
             ? { ...item, quantity: item.quantity - 1 }
             : item
-        ),
+        }),
       };
 
     case "ADD_TO_CART":
