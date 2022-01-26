@@ -83,14 +83,16 @@ export function ProductListing() {
                 className="button card-badge-small"
                 onClick={
                   token
-                    ? () => {
+                    ? (e) => {
+                        e.preventDefault();
                         userState.wishList.find(
                           (item) => item._id === product._id
                         )
                           ? deleteFromWishListApi(product, userDispatch)
                           : addToWishListApi(product, userDispatch);
                       }
-                    : () => {
+                    : (e) => {
+                        e.preventDefault();
                         navigate("/login");
                       }
                 }
@@ -121,27 +123,27 @@ export function ProductListing() {
                 </div>
                 {/* </Link> */}
                 <div>
-                  {product.inStock ? (
-                    userState && found(userState.cart, product.id) ? (
-                      <Link to="/cart">
-                        <button>
-                          <p>{isProdInCart(product, userState, token)}</p>
-                        </button>
-                      </Link>
-                    ) : (
-                      <button
-                        className={"button button-primary card-button"}
-                        onClick={
-                          token
-                            ? () => addToCartApi(product, userDispatch)
-                            : () => navigate("/login")
-                        }
-                      >
+                  {userState && found(userState.cart, product._id) ? (
+                    <Link to="/cart">
+                      <button  className={"button button-primary card-button"}>
                         {isProdInCart(product, userState, token)}
                       </button>
-                    )
+                    </Link>
                   ) : (
-                    <button className={"button card-button button-disable"}>
+                    <button
+                      className={"button button-primary card-button"}
+                      onClick={
+                        token
+                          ? (e) => {
+                              e.preventDefault();
+                              addToCartApi(product, userDispatch);
+                            }
+                          : (e) => {
+                              e.preventDefault();
+                              navigate("/login");
+                            }
+                      }
+                    >
                       {isProdInCart(product, userState, token)}
                     </button>
                   )}
