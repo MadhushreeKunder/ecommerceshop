@@ -7,7 +7,7 @@ import { formReducer } from "./formReducer";
 export const defaultFormState = {
   name: "",
   phoneNumber: "",
-  zipCode: "",
+  pinCode: "",
   city: "",
   address: "",
   state: "Maharashtra",
@@ -25,7 +25,7 @@ export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
   const initialFormState = {
     name: editAddress.name,
     phoneNumber: editAddress.phoneNumber,
-    zipCode: editAddress.zipCode,
+    pinCode: editAddress.pinCode,
     city: editAddress.city,
     address: editAddress.address,
     state: editAddress.state,
@@ -70,7 +70,7 @@ export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
               placeholder="Enter name"
               className="form-input"
               required
-              defaultValue={formState.name}
+              value={formState.name}
               onChange={(e) =>
                 formDispatch({ type: "SET_NAME", payload: e.target.value })
               }
@@ -84,7 +84,7 @@ export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
               placeholder="Enter phone number"
               className="form-input"
               required
-              defaultValue={formState.phoneNumber}
+              value={formState.phoneNumber}
               // value={formState.phoneNumber}
               onChange={(e) =>
                 formDispatch({ type: "SET_PHONENO", payload: e.target.value })
@@ -95,16 +95,16 @@ export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
 
         <div className="login-input">
           <div className="input">
-            <label>Zip Code {"  "}</label>
+            <label>Pin Code {"  "}</label>
 
             <input
               type="number"
-              placeholder="Enter ZipCode"
+              placeholder="Enter PinCode"
               className="form-input"
               required
-              defaultValue={formState.zipCode}
+              value={formState.pinCode}
               onChange={(e) =>
-                formDispatch({ type: "SET_ZIPCODE", payload: e.target.value })
+                formDispatch({ type: "SET_PINCODE", payload: e.target.value })
               }
             />
           </div>
@@ -117,7 +117,7 @@ export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
               placeholder="Enter City"
               className="form-input"
               required
-              defaultValue={formState.city}
+              value={formState.city}
               onChange={(e) =>
                 formDispatch({ type: "SET_CITY", payload: e.target.value })
               }
@@ -135,7 +135,7 @@ export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
               cols="20"
               rows="10"
               required
-              defaultValue={formState.address}
+              value={formState.address}
               onChange={(e) =>
                 formDispatch({ type: "SET_ADDRESS", payload: e.target.value })
               }
@@ -147,13 +147,13 @@ export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
               <label>State</label>
               <select
                 className="input-select"
-                defaultValue={formState.state}
+                value={formState.state}
                 onChange={(e) =>
                   formDispatch({ type: "SET_STATE", payload: e.target.value })
                 }
               >
                 {states.map((state) => {
-                  return <option defaultValue={state}>{state}</option>;
+                  return <option value={state}>{state}</option>;
                 })}
               </select>
             </div>
@@ -162,13 +162,13 @@ export const AddressForm = ({ setAddNewAddress, editAddID, setEditAdd }) => {
               <label>Country</label>
               <select
                 className="input-select"
-                defaultValue={formState.country}
+                value={formState.country}
                 onChange={(e) =>
                   formDispatch({ type: "SET_COUNTRY", payload: e.target.value })
                 }
               >
                 {countries.map((country) => {
-                  return <option defaultValue={country}>{country}</option>;
+                  return <option value={country}>{country}</option>;
                 })}
               </select>
             </div>

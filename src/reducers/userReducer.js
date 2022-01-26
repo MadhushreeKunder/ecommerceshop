@@ -2,7 +2,7 @@ export const userReducer = (userState, action) => {
   switch (action.type) {
     case "ADD_USER":
       return {
-        id: action.payload,
+        _id: action.payload,
         wishList: [],
         cart: [],
         loading: "",

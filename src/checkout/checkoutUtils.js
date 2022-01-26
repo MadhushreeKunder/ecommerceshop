@@ -11,7 +11,7 @@ export const handleSubmit = async ({
   e.preventDefault();
 
   if (/\+?\d[\d -]{8,12}\d/.test(formState.phoneNumber)) {
-    if (/^[1-9][0-9]{5}$/.test(formState.zipCode)) {
+    if (/^[1-9][0-9]{5}$/.test(formState.pinCode)) {
       try {
         userDispatch({ type: "STATUS", payload: "Adding Address...." });
         const response = await axios.post(
@@ -57,7 +57,7 @@ export const handleEditAddress = async ({
 }) => {
   e.preventDefault();
   if (/\+?\d[\d -]{8,12}\d/.test(formState.phoneNumber)) {
-    if (/^[1-9][0-9]{5}$/.test(formState.zipCode)) {
+    if (/^[1-9][0-9]{5}$/.test(formState.pinCode)) {
       try {
         userDispatch({
           type: "STATUS",

@@ -63,7 +63,7 @@ export const ShowAddresses = ({ setAddNewAddress, editAdd, setEditAdd }) => {
                   <p>Phone Number: {item.phoneNumber}</p>
                   <p>City: {item.city}</p>
                   <p>
-                    Address: {item.address} - {item.zipCode}
+                    Address: {item.address} - {item.pinCode}
                   </p>
                   <p>
                     {item.state} - {item.country}

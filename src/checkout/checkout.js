@@ -17,7 +17,7 @@ export const Checkout = () => {
           <p>Name: {address.name}</p>
           <p>Phone Number: {address.phoneNumber}</p>
           <p>
-            City: {address.city} - {address.zipCode}
+            City: {address.city} - {address.pinCode}
           </p>
           <p>
             Address: {address.address} {address.state} {address.country}

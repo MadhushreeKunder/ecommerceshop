@@ -6,8 +6,8 @@ export const formReducer = (state, { type, payload }) => {
       return { ...state, name: payload };
     case "SET_PHONENO":
       return { ...state, phoneNumber: payload };
-    case "SET_ZIPCODE":
-      return { ...state, zipCode: payload };
+    case "SET_PINCODE":
+      return { ...state, pinCode: payload };
     case "SET_CITY":
       return { ...state, city: payload };
     case "SET_ADDRESS":

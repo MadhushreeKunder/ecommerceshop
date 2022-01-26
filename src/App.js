@@ -10,7 +10,7 @@ import {
   NavBar,
   LogoutUser,
 } from "./components";
-import { Address, Checkout } from "./checkout";
+import { Address, Checkout, ShowAddresses } from "./checkout";
 
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./components/privateRoute";
@@ -45,9 +45,8 @@ export default function App() {
               </PrivateRoute>
             }
           ></Route> */}
-          <Route path="/checkout" element={<Checkout />} />
-
-          <Route path="/address" element={<Address />}></Route>
+          <PrivateRoute path="/checkout" element={<Checkout />} />
+          <PrivateRoute path="/address" element={<Address />}/>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
         </Routes>

@@ -22,10 +22,7 @@ export function UserProvider({ children }) {
         }
       })();
     }
-  }, [
-    token
-    // navigate
-  ]);
+  }, [token]);
 
   const [userState, userDispatch] = useReducer(userReducer, {
     cart: [],
