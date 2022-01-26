@@ -65,7 +65,7 @@ export function Cart() {
                         </button>
                       ) : (
                         <button
-                          className="button button-incdec "
+                          className="button button-incdec button-secondary"
                           onClick={() =>
                             removeFromCartApi(product, userDispatch)
                           }
