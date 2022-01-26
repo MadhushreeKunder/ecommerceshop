@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { useUser } from "../contexts/userContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -9,7 +8,6 @@ import { backendURL } from "../utils/utils";
 export const ShowAddresses = ({ setAddNewAddress, editAdd, setEditAdd }) => {
   const { userState, userDispatch } = useUser();
 
-  const [chooseAddress, setChooseAddress] = useState(null);
 
   const editAddress = (id) => {
     setEditAdd({ toggle: true, editAddID: id });

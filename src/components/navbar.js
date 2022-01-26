@@ -1,4 +1,4 @@
-import { NavLink, Routes, Route } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../auth/authContext";
 import { useUser } from "../contexts";
@@ -12,8 +12,6 @@ export function NavBar() {
   const toggleNav = () => {
     setNavVisible(!isNavVisible);
   };
-
-
 
   return (
     <>
@@ -45,7 +43,6 @@ export function NavBar() {
                 <NavLink
                   className="nav-link button"
                   data-badge={token && totalItems(userState)}
-                  //   {itemsInCart.length}
                   to="/cart"
                 >
                   Cart
@@ -68,24 +65,12 @@ export function NavBar() {
                   to={token ? "/logout" : "/login"}
                   // style={{ display: "flex", alignItems: "center" }}
                 >
-                
                   {""} {token ? "Logout" : "Login"}
                 </NavLink>
               </li>
             </ul>
             <ul className="nav-list nav-list--secondary">
-              <li className="nav-item">
-                {/* <NavLink
-                  className="nav-link button button-secondary nav-link--button"
-                  to="/signup"
-                >
-                  Sign Up{" "}
-                </NavLink> */}
-                {/* <NavLink to="/address">Address</NavLink> */}
-              </li>
-              {/* <li className="nav-item">
-                <NavLink to="/showaddresses">Showww</NavLink>
-              </li> */}
+              <li className="nav-item"></li>
             </ul>
           </nav>
         </div>

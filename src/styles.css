@@ -251,13 +251,13 @@ img {
   align-items: stretch;
 }
 
-.product-detail-img {
-  /* flex-grow: 1; */
+/* .product-detail-img {
+  flex-grow: 1;
 }
 
 .product-detail-info {
-  /* flex-grow: 1; */
-}
+  flex-grow: 1;
+} */
 
 .product-detail-name {
   font-weight: lighter;

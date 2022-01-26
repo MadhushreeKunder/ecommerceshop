@@ -3,9 +3,6 @@ import { useProduct } from "../../contexts/productContext";
 export function Filters() {
   const {
     sortBy,
-    filteredData,
-    rating,
-    status,
     dispatch,
     showInventoryAll,
     showFastDeliveryOnly,

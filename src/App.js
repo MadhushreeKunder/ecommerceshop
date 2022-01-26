@@ -4,13 +4,12 @@ import {
   Cart,
   WishList,
   Home,
-  ProductDetail,
   Login,
   SignUp,
   NavBar,
   LogoutUser,
 } from "./components";
-import { Address, Checkout, ShowAddresses } from "./checkout";
+import { Address, Checkout } from "./checkout";
 
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./components/privateRoute";
