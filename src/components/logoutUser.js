@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { logoutImage } from "../api/images";
 import { useAuth } from "../auth/authContext";
 
 export const LogoutUser = () => {
@@ -19,7 +20,7 @@ export const LogoutUser = () => {
       >
         Logout
       </button>
-      <img style={{width: "inherit"}} src="/images/Saly-17.png" alt="" />
+      <img style={{width: "inherit"}} src={logoutImage} alt="" />
       
     </div>
   );

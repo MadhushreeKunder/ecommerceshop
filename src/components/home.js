@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { homePageHeroImage } from "../api/images";
 
 export function Home() {
   return (
@@ -16,7 +17,7 @@ export function Home() {
 
         <img
           className="hero-image"
-          src="/images/Saly-34.png"
+          src={homePageHeroImage}
           alt="3D person facing right"
         />
       </div>

@@ -6,6 +6,7 @@ import {
 } from "../api/apiSync";
 import { Link } from "react-router-dom";
 import { totalPrice, totalItems } from "../utils/utils";
+import { EmptyCart } from "./emptyCart";
 
 export function Cart() {
   const { userState, userDispatch } = useUser();
@@ -20,7 +21,7 @@ export function Cart() {
 
       <div className="">
         {userState?.cart.length === 0 ? (
-          <h1>Your cart feels light, add some Products!</h1>
+          <EmptyCart/>
         ) : (
           <div className="cart">
             <div className="cards-section cart-list">
@@ -74,7 +75,12 @@ export function Cart() {
                       )}
                     </div>
 
-                    <button className="button ">Remove</button>
+                    <button
+                      className="button"
+                      onClick={() => removeFromCartApi(product, userDispatch)}
+                    >
+                      Remove
+                    </button>
                   </div>
                   <div>Price: Rs.{getTotalCostItem(product)} </div>
                 </div>

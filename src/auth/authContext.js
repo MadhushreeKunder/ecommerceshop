@@ -20,7 +20,7 @@ function setupAuthExceptionHandler(logoutUser, navigate) {
     (error) => {
       if (error?.response?.status === UNAUTHORIZED) {
         logoutUser();
-        navigate("login");
+        navigate("/login");
       }
       return Promise.reject(error);
     }

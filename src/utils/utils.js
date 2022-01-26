@@ -54,9 +54,6 @@ export const isProdInWishList = (item, userState, token) => {
 //     : "transparent";
 // };
 
-export const loginAlert = (msg, setShowModal) => {
-  return setShowModal(true);
-};
 
 export const totalPrice = (userState) => {
   return userState?.cart.reduce((acc, value) => {
