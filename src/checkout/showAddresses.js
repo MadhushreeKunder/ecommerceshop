@@ -39,22 +39,31 @@ export const ShowAddresses = ({ setAddNewAddress, editAdd, setEditAdd }) => {
 
   return (
     <>
+      {editAdd.toggle && (
+        <AddressForm
+          editAddID={editAdd.editAddID}
+          setAddNewAddress={setAddNewAddress}
+          setEditAdd={setEditAdd}
+        />
+      )}
       <div className="show-addresses">
         {userState.addresses.map((item) => {
           return (
             <div className="card card-address" key={item._id}>
               <div key={item._id}>
-                <span className="address-bold-label" style={{fontSize: "1.5rem"}}>{item.name}</span>{" "}
+                <span className="bold-label" style={{ fontSize: "1.5rem" }}>
+                  {item.name}
+                </span>{" "}
                 <p>
-                  <span className="address-bold-label">Address:</span>{" "}
-                  {item.address} {item.city}- {item.pinCode}
+                  <span className="bold-label">Address:</span> {item.address}{" "}
+                  {item.city}- {item.pinCode}
                 </p>
                 <p>
                   {item.state} - {item.country}
                 </p>
                 <p>
                   {" "}
-                  <span className="address-bold-label">Phone Number: </span>
+                  <span className="bold-label">Phone Number: </span>
                   {item.phoneNumber}
                 </p>
               </div>
@@ -87,13 +96,6 @@ export const ShowAddresses = ({ setAddNewAddress, editAdd, setEditAdd }) => {
           );
         })}
       </div>
-      {editAdd.toggle && (
-        <AddressForm
-          editAddID={editAdd.editAddID}
-          setAddNewAddress={setAddNewAddress}
-          setEditAdd={setEditAdd}
-        />
-      )}
     </>
   );
 };

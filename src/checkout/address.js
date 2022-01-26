@@ -7,10 +7,11 @@ export const Address = () => {
   const [editAdd, setEditAdd] = useState({ toggle: false, editAddID: "" });
 
   return (
-    <div className="address-add login-form">
-      <h2>
-        <i className="fas fa-map-marker-alt"></i> Addresses
+    <div className="address-form">
+      <h2 style={{marginBottom: "1rem" }}>
+        <i className="fas fa-map-marker-alt"></i> Delivery Address
       </h2>
+
       {addNewAddress ? (
         <button
           className="button"
