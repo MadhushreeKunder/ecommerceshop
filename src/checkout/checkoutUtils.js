@@ -37,7 +37,7 @@ export const handleSubmit = async ({
         userDispatch({ type: "STATUS", payload: "" });
       }
     } else {
-      setMsg("Please enter a valid Indian Zip-Code");
+      setMsg("Please enter a valid Indian Pin-Code");
     }
   } else {
     setMsg("Please enter a valid 10 digit phone number");
@@ -91,7 +91,7 @@ export const handleEditAddress = async ({
         userDispatch({ type: "STATUS", payload: "" });
       }
     } else {
-      setMsg("Please enter a valid Indian Zip-Code");
+      setMsg("Please enter a valid Indian Pin-Code");
     }
   } else {
     setMsg("Please enter a valid 10 digit phone number");

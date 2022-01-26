@@ -63,3 +63,9 @@ export const totalPrice = (userState) => {
     return acc + value.quantity * value.price;
   }, 0);
 };
+
+export const totalItems = (userState) => {
+  return userState?.cart.reduce((acc, value) => {
+    return acc + value.quantity;
+  }, 0);
+};

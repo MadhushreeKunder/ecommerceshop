@@ -2,6 +2,7 @@ import { NavLink, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../auth/authContext";
 import { useUser } from "../contexts";
+import { totalItems } from "../utils/utils";
 
 export function NavBar() {
   const { token } = useAuth();
@@ -11,11 +12,8 @@ export function NavBar() {
   const toggleNav = () => {
     setNavVisible(!isNavVisible);
   };
-  const totalItems = () => {
-    return userState?.cart.reduce((acc, value) => {
-      return acc + value.quantity;
-    }, 0);
-  };
+
+
 
   return (
     <>
@@ -46,7 +44,7 @@ export function NavBar() {
               <li className="nav-item">
                 <NavLink
                   className="nav-link button"
-                  data-badge={token && totalItems()}
+                  data-badge={token && totalItems(userState)}
                   //   {itemsInCart.length}
                   to="/cart"
                 >
@@ -61,7 +59,6 @@ export function NavBar() {
                   to="/wishlist"
                 >
                   {" "}
-                  {token && userState?.wishList?.length}
                   WishList
                 </NavLink>
               </li>
@@ -71,11 +68,8 @@ export function NavBar() {
                   to={token ? "/logout" : "/login"}
                   // style={{ display: "flex", alignItems: "center" }}
                 >
-                  <i
-                    className="fas fa-user-circle"
-                    style={{ fontSize: "1.5rem", marginRight: "5px" }}
-                  ></i>{" "}
-                  {""} Account
+                
+                  {""} {token ? "Logout" : "Login"}
                 </NavLink>
               </li>
             </ul>
@@ -87,11 +81,11 @@ export function NavBar() {
                 >
                   Sign Up{" "}
                 </NavLink> */}
-                <NavLink to="/address">Address</NavLink>
+                {/* <NavLink to="/address">Address</NavLink> */}
               </li>
-              <li className="nav-item">
-                <NavLink to="/checkout">Checkout</NavLink>
-              </li>
+              {/* <li className="nav-item">
+                <NavLink to="/showaddresses">Showww</NavLink>
+              </li> */}
             </ul>
           </nav>
         </div>

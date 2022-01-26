@@ -31,14 +31,12 @@
 
 /* ---------------------------------------------------------- */
 
-.card, .card-cart {
+.card {
   height: auto;
   width: 12rem;
   position: relative;
   box-shadow: none;
 }
-
-
 
 .card:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.075);
@@ -115,11 +113,13 @@
 
 .cart-quantity {
   font-size: 1.2rem;
+  margin: 0 0.5rem;
 }
 
 .button-incdec {
-  margin: 0;
+  margin: 0 10px;
   padding: 0.2rem 1rem;
+  font-weight: 600;
 }
 
 .card-badge-small {
@@ -142,6 +142,7 @@
   align-items: center;
   padding-top: 1rem;
   margin-top: 1rem;
+  /* width: 80%; */
 }
 
 .flex-start {
@@ -151,13 +152,33 @@
 
 
 .cart-payment {
-  border-left: 5px dashed lightgray;
+  border-left: 2px dashed lightgray;
   padding: 1rem;
   margin: 1rem;
 }
 
 .checked {
   color: #219b95;
+}
+
+.card-cart{
+  display: flex;
+  flex-direction: row;
+  height: 20rem;
+  width: 110%;
+  justify-content: space-between;
+}
+
+.card-cart-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.card-cart-img{
+  width: 50%;
+  height: 100%;
 }
 
 /* ------------------header------------------ */
