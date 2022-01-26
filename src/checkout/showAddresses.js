@@ -39,6 +39,54 @@ export const ShowAddresses = ({ setAddNewAddress, editAdd, setEditAdd }) => {
 
   return (
     <>
+      <div className="show-addresses">
+        {userState.addresses.map((item) => {
+          return (
+            <div className="card card-address" key={item._id}>
+              <div key={item._id}>
+                <span className="address-bold-label" style={{fontSize: "1.5rem"}}>{item.name}</span>{" "}
+                <p>
+                  <span className="address-bold-label">Address:</span>{" "}
+                  {item.address} {item.city}- {item.pinCode}
+                </p>
+                <p>
+                  {item.state} - {item.country}
+                </p>
+                <p>
+                  {" "}
+                  <span className="address-bold-label">Phone Number: </span>
+                  {item.phoneNumber}
+                </p>
+              </div>
+              <div className="address-actions">
+                <div>
+                  <button
+                    style={{ marginRight: "0.5rem" }}
+                    className="button button-secondary"
+                    onClick={() => editAddress(item._id)}
+                  >
+                    <i className="far fa-edit"></i> Edit
+                  </button>
+                  <button
+                    className="button"
+                    onClick={() => deleteAddress(item._id)}
+                  >
+                    <i className="fas fa-trash"></i> Delete
+                  </button>
+                </div>
+                <Link to="/checkout" state={{ id: item._id }}>
+                  <button
+                    className="button button-primary"
+                    style={{ padding: "1rem", margin: "1rem" }}
+                  >
+                    Deliver to this Address
+                  </button>
+                </Link>
+              </div>
+            </div>
+          );
+        })}
+      </div>
       {editAdd.toggle && (
         <AddressForm
           editAddID={editAdd.editAddID}
@@ -46,59 +94,6 @@ export const ShowAddresses = ({ setAddNewAddress, editAdd, setEditAdd }) => {
           setEditAdd={setEditAdd}
         />
       )}
-      <div className='show-addresses'>
-        {userState.addresses.map((item) => {
-          return (
-            <div className='card card-address' key={item._id}>
-              <input
-                type='radio'
-                name='address'
-                value={item._id}
-                checked={chooseAddress === item._id}
-                onChange={(e) => setChooseAddress(e.target.value)}
-              />
-              <label>
-                <div key={item._id}>
-                  <h3>Name: {item.name}</h3>
-                  <p>Phone Number: {item.phoneNumber}</p>
-                  <p>City: {item.city}</p>
-                  <p>
-                    Address: {item.address} - {item.pinCode}
-                  </p>
-                  <p>
-                    {item.state} - {item.country}
-                  </p>
-                  <p>Address Type: {item.addressType}</p>
-                  <p>Cash on Delivery Avaliable</p>
-                  <div className='address-actions'>
-                    <button
-                      className='btn btn-pad primary'
-                      onClick={() => editAddress(item._id)}
-                    >
-                      <i className='far fa-edit'></i> Edit
-                    </button>
-                    <button
-                      className='btn btn-pad secondary'
-                      onClick={() => deleteAddress(item._id)}
-                    >
-                      <i className='fas fa-trash'></i> Delete
-                    </button>
-                  </div>
-                  {chooseAddress === item._id && (
-                    <div className='mg-top'>
-                      <Link to='/checkout' state={{ id: chooseAddress }}>
-                        <button className='btn btn-pad primary'>
-                          Deliver to this Address
-                        </button>
-                      </Link>
-                    </div>
-                  )}
-                </div>
-              </label>
-            </div>
-          );
-        })}
-      </div>
     </>
   );
 };

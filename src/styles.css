@@ -422,6 +422,86 @@ img {
   justify-content: space-between;
 }
 
+.show-addresses {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.address-form {
+  width: 90%;
+}
+
+.card-address {
+  border: 2px solid lightgray;
+  width: 100%;
+  max-width: 30rem;
+  padding: 1rem;
+}
+
+.card-address-division {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.address-actions {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.bold-label {
+  font-weight: 600;
+}
+
+/* ------------checkout */
+
+.checkout-page {
+  /* margin: 7rem ; */
+  width: 90%;
+  max-width: 1100px;
+  margin: 8rem auto;
+}
+
+.checkout {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.checkout-division {
+  border: 2px dashed var(--light-gray);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.checkout-address-border {
+  margin-bottom: 1rem;
+}
+
+.checkout-address {
+  max-width: 50%;
+}
+
+.checkout-product {
+  display: flex;
+}
+
+.checkout-charges {
+  margin: 1rem 0;
+}
+
+.checkout-payment{
+display: flex;
+flex-direction: column;
+}
+
+.checkout-button {
+  align-self: center;
+  margin-top: 2rem;
+}
+
 /* -----------responsive */
 
 @media screen and (max-width: 900px) {
