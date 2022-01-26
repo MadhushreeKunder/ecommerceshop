@@ -99,6 +99,12 @@ export function ProductListing() {
               >
                 <i
                   className={`${isProdInWishList(product, userState, token)}`}
+                  style={
+                    token &&
+                    userState.wishList.find((item) => item._id === product._id)
+                      ? { color: "red" }
+                      : null
+                  }
                 ></i>
               </button>
 
@@ -125,7 +131,7 @@ export function ProductListing() {
                 <div>
                   {userState && found(userState.cart, product._id) ? (
                     <Link to="/cart">
-                      <button  className={"button button-primary card-button"}>
+                      <button className={"button button-primary card-button"}>
                         {isProdInCart(product, userState, token)}
                       </button>
                     </Link>
