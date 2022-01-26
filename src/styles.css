@@ -31,12 +31,14 @@
 
 /* ---------------------------------------------------------- */
 
-.card {
+.card, .card-cart {
   height: auto;
   width: 12rem;
   position: relative;
   box-shadow: none;
 }
+
+
 
 .card:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.075);
@@ -146,14 +148,10 @@
   justify-content: flex-start;
 }
 
-.cart-page {
-  display: flex;
-  /* align-items: center; */
-  justify-content: center;
-}
 
-.cart-details {
-  border-left: 5px dotted gray;
+
+.cart-payment {
+  border-left: 5px dashed lightgray;
   padding: 1rem;
   margin: 1rem;
 }
@@ -429,11 +427,18 @@ img {
 }
 
 .address-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   width: 90%;
+  /* max-width: 1100px; */
+  margin: 8rem auto;
+
 }
 
 .card-address {
-  border: 2px solid lightgray;
+  border: 2px dashed lightgray;
   width: 100%;
   max-width: 30rem;
   padding: 1rem;
@@ -456,14 +461,14 @@ img {
 
 /* ------------checkout */
 
-.checkout-page {
+.checkout-page, .cart-page {
   /* margin: 7rem ; */
   width: 90%;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 8rem auto;
 }
 
-.checkout {
+.checkout, .cart {
   margin-top: 1rem;
   display: flex;
   justify-content: space-between;
@@ -471,7 +476,7 @@ img {
 }
 
 .checkout-division {
-  border: 2px dashed var(--light-gray);
+  border: 2px dashed lightgray;
   border-radius: 10px;
   padding: 1rem;
 }
@@ -495,6 +500,7 @@ img {
 .checkout-payment{
 display: flex;
 flex-direction: column;
+min-width: 25% ;
 }
 
 .checkout-button {
