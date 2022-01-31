@@ -50,37 +50,10 @@ export function ProductListing() {
                   {product.rating}k
                 </div>
               </div>
-              {/* </Link> */}
-              {/* 
-              {token ? (
-                <button
-                  className="button card-badge-small"
-                  onClick={
-                    state?.itemsInWishList.find(
-                      (item) => item.id === product.id
-                    )
-                      ? () => {
-                          deleteFromWishListApi(product, cartDispatch);
-                        }
-                      : () => {
-                          addToWishListApi(product, cartDispatch);
-                        }
-                  }
-                >
-                  <i className=" fa fa-heart" style={{ color: "red" }}></i>
-                </button>
-              ) : (
-                <button
-                  className="button card-badge-small"
-                  onClick={navigate("login")}
-                >
-                  <i className=" fa fa-heart"></i>
-                </button>
-              )} */}
 
               <button
                 className="button card-badge-small"
-                onClick={
+                onClick={ 
                   token
                     ? (e) => {
                         e.preventDefault();
