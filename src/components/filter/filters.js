@@ -1,12 +1,8 @@
 import { useProduct } from "../../contexts/productContext";
 
 export function Filters() {
-  const {
-    sortBy,
-    dispatch,
-    showInventoryAll,
-    showFastDeliveryOnly,
-  } = useProduct();
+  const { sortBy, dispatch, showInventoryAll, showFastDeliveryOnly } =
+    useProduct();
 
   return (
     <>
@@ -22,7 +18,7 @@ export function Filters() {
             }
             checked={sortBy && sortBy === "PRICE_HIGH_TO_LOW"}
           ></input>{" "}
-        Price: High to low{" "}
+          Price: High to low{" "}
         </label>
         <br />
         <label className="label">
@@ -34,7 +30,7 @@ export function Filters() {
             }
             checked={sortBy && sortBy === "PRICE_LOW_TO_HIGH"}
           ></input>{" "}
-        Price: Low to High
+          Price: Low to High
         </label>
       </fieldset>
 
@@ -59,9 +55,13 @@ export function Filters() {
         </label>
       </fieldset>
 
-      <button className="button"
-      onClick={()=>dispatch({type: "CLEAR_FILTERS"})}>
-      Clear Filters
+      <button
+        className="button"
+        onClick={() => {
+          dispatch({ type: "CLEAR_FILTERS" });
+        }}
+      >
+        Clear Filters
       </button>
     </>
   );
