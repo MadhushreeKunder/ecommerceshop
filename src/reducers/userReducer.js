@@ -45,7 +45,7 @@ export const userReducer = (userState, action) => {
         }),
       };
 
-    case "INCREMENT":
+    case "INCREMENT_QUANTITY":
       return {
         ...userState,
         cart: userState.cart.map((item) => {
@@ -55,7 +55,7 @@ export const userReducer = (userState, action) => {
         }),
       };
 
-    case "DECREMENT":
+    case "DECREMENT_QUANTITY":
       return {
         ...userState,
         cart: userState.cart.map((item) =>{
