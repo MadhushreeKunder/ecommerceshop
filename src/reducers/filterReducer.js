@@ -21,8 +21,8 @@ export const filterReducer = (state, action) => {
     case "CLEAR_FILTERS":
       return {
         ...state,
-        showInventoryAll: false,
-        showFastDeliveryOnly: false,
+        // showInventoryAll: false,
+        // showFastDeliveryOnly: false,
         sortBy: null,
         ratings: 5,
       };

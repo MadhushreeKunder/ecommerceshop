@@ -7,6 +7,14 @@ export function Filters() {
   return (
     <>
       <h2>Filters</h2>
+      <button
+        className="button"
+        onClick={() => {
+          dispatch({ type: "CLEAR_FILTERS" });
+        }}
+      >
+        Clear Sorting
+      </button>
       <fieldset className="fieldset">
         <legend className="legend">Sort By Price</legend>
         <label className="label">
@@ -34,6 +42,8 @@ export function Filters() {
         </label>
       </fieldset>
 
+      
+
       <fieldset className="fieldset">
         <legend className="legend"> Filters </legend>
         <label className="label">
@@ -55,14 +65,7 @@ export function Filters() {
         </label>
       </fieldset>
 
-      <button
-        className="button"
-        onClick={() => {
-          dispatch({ type: "CLEAR_FILTERS" });
-        }}
-      >
-        Clear Filters
-      </button>
+    
     </>
   );
 }
