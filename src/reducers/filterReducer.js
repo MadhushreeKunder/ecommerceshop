@@ -4,7 +4,7 @@ export const filterReducer = (state, action) => {
       return (state = { ...state, sortBy: action.payload });
     case "TOGGLE_INVENTORY":
       return (state = {
-        ...state,
+        ...state, 
         showInventoryAll: !state.showInventoryAll,
       });
     case "TOGGLE_DELIVERY":
@@ -19,10 +19,10 @@ export const filterReducer = (state, action) => {
       return (state = { ...state, status: action.payload });
 
     case "CLEAR_FILTERS":
-      return {  
+      return {
         ...state,
         showInventoryAll: false,
-        showFastDelivery: false,
+        showFastDeliveryOnly: false,
         sortBy: null,
         ratings: 5,
       };
