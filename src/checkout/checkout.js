@@ -29,7 +29,7 @@ export const Checkout = () => {
             <div className="checkout-product">
               {userState.cart.map((item) => {
                 return (
-                  <div className="card" style={{margin: "0.5rem", gap: "1rem"}} key={item._id}>
+                  <div className="card checkout-card" style={{margin: "0.5rem", gap: "1rem"}} key={item._id}>
                     <img src={item.img} alt={item.name} className="card-img" />
                     <div className="card-info">
                       <p className="card-brand">{item.brand}</p>
@@ -59,7 +59,7 @@ export const Checkout = () => {
         <div className="checkout-payment  checkout-division">
           <p className="bold-label">Order Summary</p>
           <div className="checkout-charges">
-            <p>Items: ₹ Rs. {totalPrice(userState)}</p>
+            <p>Items: Rs. {totalPrice(userState)}</p>
             <p>Delivery: FREE </p>
           </div>
           <hr />

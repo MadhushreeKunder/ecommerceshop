@@ -638,4 +638,17 @@ img {
     margin: 1rem;
     width: auto;
   }
+
+  /* checkout */
+  .checkout {
+    flex-direction: column;
+  }
+
+  .checkout-address {
+    max-width: 100%;
+  }
+
+  .checkout-card {
+    width: 100%;
+  }
 }
