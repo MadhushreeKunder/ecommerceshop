@@ -512,6 +512,8 @@ img {
 
 .checkout-product {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .checkout-charges {

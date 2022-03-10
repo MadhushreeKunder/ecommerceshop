@@ -29,7 +29,7 @@ export const Checkout = () => {
             <div className="checkout-product">
               {userState.cart.map((item) => {
                 return (
-                  <div className="card" key={item._id}>
+                  <div className="card" style={{margin: "0.5rem", gap: "1rem"}} key={item._id}>
                     <img src={item.img} alt={item.name} className="card-img" />
                     <div className="card-info">
                       <p className="card-brand">{item.brand}</p>
@@ -46,7 +46,9 @@ export const Checkout = () => {
                           ({item.discount}% OFF)
                         </span>
                       </div>
-                      <p>Quantity: {item.quantity}</p>
+                      <p>Quantity: 
+                        <span style={{color: "#fe656b", fontWeight: "bold"}}>   {item.quantity}</span>
+                     </p>
                     </div>
                   </div>
                 );
