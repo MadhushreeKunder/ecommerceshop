@@ -620,12 +620,22 @@ img {
     margin: 1rem;
   }
 
-  .cart-card-total-price{
+  .cart-card-total-price {
     padding: 1rem;
     border-top: 2px dashed lightgray;
   }
 
-  .cart-list{
+  .cart-list {
     flex-direction: row;
+  }
+
+  /* address */
+  .show-addresses {
+    margin-top: 1rem;
+  }
+
+  .card-address {
+    margin: 1rem;
+    width: auto;
   }
 }
