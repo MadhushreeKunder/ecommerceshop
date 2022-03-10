@@ -589,4 +589,43 @@ img {
   .cards-section {
     /* justify-content: flex-start; */
   }
+
+  /* cart page */
+  .card-cart {
+    flex-direction: column;
+    height: auto;
+    width: auto;
+  }
+
+  .cart {
+    flex-direction: column-reverse;
+    margin-top: 0;
+  }
+
+  .cart-payment {
+    border-left: 0;
+    border-bottom: 2px dashed lightgray;
+    margin: 0;
+  }
+
+  .card-cart-info {
+    gap: 0;
+  }
+
+  .card-cart-img {
+    width: 100%;
+  }
+
+  .cart-update-quantity {
+    margin: 1rem;
+  }
+
+  .cart-card-total-price{
+    padding: 1rem;
+    border-top: 2px dashed lightgray;
+  }
+
+  .cart-list{
+    flex-direction: row;
+  }
 }
