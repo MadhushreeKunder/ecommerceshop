@@ -53,6 +53,7 @@ export function ProductListing() {
 
               <button
                 className="button card-badge-small"
+                style={{color: "#fe656b"}}
                 onClick={ 
                   token
                     ? (e) => {
@@ -74,7 +75,7 @@ export function ProductListing() {
                   style={
                     token &&
                     userState.wishList.find((item) => item._id === product._id)
-                      ? { color: "red" }
+                      ? { color: "#fe656b" }
                       : null
                   }
                 ></i>
