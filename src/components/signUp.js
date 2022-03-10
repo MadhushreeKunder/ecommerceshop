@@ -38,7 +38,7 @@ export const SignUp = () => {
           );
           if (result.success) {
             userDispatch({ type: "ADD_USER", payload: result.user._id });
-            navigate(state?.from ? state.from : "/");
+            navigate(state?.from ? state.from : "/products");
           }
         } else {
           setSignUpCredentials({

@@ -26,7 +26,7 @@ export function Login() {
       // 2: navigate to the page we were going to before you sent us to /login page
       // navigate(state?.from ? state.from : "/");
       if (result.success) {
-        navigate(state?.from ? state.from : "/");
+        navigate(state?.from ? state.from : "/products");
       }
     } else {
       setLoginCredentials({
