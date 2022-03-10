@@ -11,7 +11,7 @@ export function Login() {
   const [loginCredentials, setLoginCredentials] = useState({
     username: "",
     password: "",
-    message: "",
+    msg: "",
     showPassword: "",
   });
 
@@ -23,15 +23,14 @@ export function Login() {
         loginCredentials.username,
         loginCredentials.password
       );
-      // 2: navigate to the page we were going to before you sent us to /login page
-      // navigate(state?.from ? state.from : "/");
+
       if (result.success) {
         navigate(state?.from ? state.from : "/products");
       }
     } else {
       setLoginCredentials({
         ...loginCredentials,
-        message: "Username & Password required",
+        msg: "Username & Password required",
       });
     }
   };
@@ -99,8 +98,25 @@ export function Login() {
           <img src="../images/loading.svg" alt="loading" className="loading" />
         )}
       </h3>
-      <p>{loginCredentials.msg}</p>
-      <button className="button button-primary login-button" onClick={loginUser}>
+      <p style={{ margin: "1rem" }}>{loginCredentials.msg}</p>
+
+      <button
+        className="button button-secondary login-button"
+        onClick={() => {
+          loginUser();
+          setLoginCredentials(() => ({
+            ...loginCredentials,
+            username: "admin",
+            password: "admin",
+          }));
+        }}
+      >
+        Login with test credentials
+      </button>
+      <button
+        className="button button-primary login-button"
+        onClick={loginUser}
+      >
         Login
       </button>
       <small>
