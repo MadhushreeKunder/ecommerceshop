@@ -5,11 +5,7 @@ import {
   addToWishListApi,
   deleteFromWishListApi,
 } from "../api/apiSync";
-import {
-  found,
-  isProdInCart,
-  isProdInWishList,
-} from "../utils/utils";
+import { found, isProdInCart, isProdInWishList } from "../utils/utils";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/authContext";
 import { useUser } from "../contexts/userContext";
@@ -53,8 +49,8 @@ export function ProductListing() {
 
               <button
                 className="button card-badge-small"
-                style={{color: "#fe656b"}}
-                onClick={ 
+                style={{ color: "#fe656b" }}
+                onClick={
                   token
                     ? (e) => {
                         e.preventDefault();
@@ -104,13 +100,24 @@ export function ProductListing() {
                 <div>
                   {userState && found(userState.cart, product._id) ? (
                     <Link to="/cart">
-                      <button className={"button button-primary card-button"}>
+                      <button
+                        className={
+                          isProdInCart(product, userState, token)
+                            ? "button button-secondary card-button"
+                            : "button button-primary card-button"
+                        }
+                      >
                         {isProdInCart(product, userState, token)}
                       </button>
                     </Link>
                   ) : (
                     <button
-                      className={"button button-primary card-button"}
+                      disabled={product.inStock ? false : true}
+                      className={
+                        product.inStock
+                          ? "button button-primary card-button"
+                          : "button button-disable card-button"
+                      }
                       onClick={
                         token
                           ? (e) => {
@@ -123,7 +130,7 @@ export function ProductListing() {
                             }
                       }
                     >
-                      {isProdInCart(product, userState, token)}
+                      <span> {isProdInCart(product, userState, token)} </span>
                     </button>
                   )}
                 </div>

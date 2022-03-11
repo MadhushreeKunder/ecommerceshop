@@ -29,6 +29,11 @@
   margin: 0;
 }
 
+.button-disable {
+  color: white;
+  background-color: #b4b4b4 !important;
+}
+
 /* ---------------------------------------------------------- */
 
 .card {
