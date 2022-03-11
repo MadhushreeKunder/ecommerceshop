@@ -8,6 +8,7 @@ export function Filters() {
     <>
       <h2>Filters</h2>
       <button
+        style={{ marginTop: "1rem" }}
         className="button"
         onClick={() => {
           dispatch({ type: "CLEAR_FILTERS" });
@@ -15,6 +16,7 @@ export function Filters() {
       >
         Clear Sorting
       </button>
+
       <fieldset className="fieldset">
         <legend className="legend">Sort By Price</legend>
         <label className="label">
@@ -42,8 +44,6 @@ export function Filters() {
         </label>
       </fieldset>
 
-      
-
       <fieldset className="fieldset">
         <legend className="legend"> Filters </legend>
         <label className="label">
@@ -64,8 +64,6 @@ export function Filters() {
           Fast Delivery Only
         </label>
       </fieldset>
-
-    
     </>
   );
 }
