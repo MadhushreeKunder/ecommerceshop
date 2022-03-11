@@ -21,7 +21,12 @@ export function ProductListing() {
     <div className="container flex-container">
       <div className="main-products">
         <h1>Products</h1>
-        {status.loading && <span> Loading... </span>}
+
+        {status.loading && (
+          <div className="loading-div">
+            <img src="../images/loading.svg" alt="loading" />
+          </div>
+        )}
 
         <div className="cards-section">
           {filteredData.map((product) => (

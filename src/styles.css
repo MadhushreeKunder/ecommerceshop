@@ -34,6 +34,10 @@
   background-color: #b4b4b4 !important;
 }
 
+.loading-div {
+  height: 80vh;
+  width: 80vw;
+}
 /* ---------------------------------------------------------- */
 
 .card {
@@ -306,6 +310,7 @@ img {
 
 .fieldset {
   padding: 1rem;
+  margin: 1rem 0;
   border-color: rgba(238, 238, 238, 0.705);
 }
 
